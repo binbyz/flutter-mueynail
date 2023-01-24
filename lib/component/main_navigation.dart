@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/const/color.dart';
+import 'package:mueynail/const/style.dart';
 import 'package:mueynail/const/value.dart';
 
 class MainNavigation extends StatelessWidget {
@@ -15,10 +16,11 @@ class MainNavigation extends StatelessWidget {
       onTap: onItemTapped,
       type: BottomNavigationBarType.fixed,
       selectedItemColor: primaryColor,
+      selectedLabelStyle: navigationTextStyle,
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.other_houses_rounded), label: vBrand),
+        BottomNavigationBarItem(icon: Icon(Icons.other_houses_rounded), label: valueBrand),
+        BottomNavigationBarItem(icon: Icon(Icons.mode_comment), label: '문의하기'),
         BottomNavigationBarItem(icon: Icon(Icons.medical_information), label: '예약하기'),
-        BottomNavigationBarItem(icon: Icon(Icons.event_available_rounded), label: '이벤트'),
         BottomNavigationBarItem(icon: Icon(Icons.card_membership_rounded), label: '멤버쉽'),
       ],
     );

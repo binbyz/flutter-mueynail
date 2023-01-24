@@ -1,1 +1,1 @@
-const String vBrand = '뮤이네일';
+const String valueBrand = '뮤이네일';

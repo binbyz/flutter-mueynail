@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/component/main_app_bar.dart';
 import 'package:mueynail/component/main_navigation.dart';
 import 'package:mueynail/const/color.dart';
+import 'package:mueynail/screen/chat_screen.dart';
 import 'package:mueynail/screen/home_screen.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      theme: ThemeData(fontFamily: 'notosans', primaryColor: primaryColor),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'notosans',
+        primaryColor: primaryColor,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: primaryColor,
+          ),
+        ),
+      ),
       home: const AppScaffold(),
     ),
   );
@@ -29,19 +38,18 @@ class _AppScaffoldState extends State<AppScaffold> {
     });
   }
 
+  Widget buildScreen() {
+    if (currentNavigation == 1) {
+      return const ChatScreen();
+    } else {
+      return const HomeScreen();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const CustomScrollView(
-        slivers: [
-          MainAppBar(),
-          SliverToBoxAdapter(
-            child: SafeArea(
-              child: HomeScreen(),
-            ),
-          ),
-        ],
-      ),
+      body: buildScreen(),
       bottomNavigationBar: MainNavigation(onItemTapped: onSelectNavigation, currentIndex: currentNavigation),
     );
   }

@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mueynail/const/style.dart';
 import 'package:mueynail/const/value.dart';
 
-class MainAppBar extends StatelessWidget {
+class MainAppBar extends StatelessWidget with PreferredSizeWidget {
   const MainAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SliverAppBar(
-      forceElevated: true,
+    return AppBar(
       backgroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
         background: SafeArea(
@@ -25,4 +24,7 @@ class MainAppBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/component/content_box.dart';
+import 'package:mueynail/component/home/content_box.dart';
 import 'package:mueynail/component/home/event_scorllview.dart';
 import 'package:mueynail/component/home/today_art_carousel.dart';
-import 'package:mueynail/component/main_app_bar.dart';
+import 'package:mueynail/component/home/home_app_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MainAppBar(),
+      appBar: const HomeAppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: const [

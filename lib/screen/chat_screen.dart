@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/component/chat/bubble.dart';
+import 'package:mueynail/component/chat/chat_app_bar.dart';
 import 'package:mueynail/component/chat/chat_input.dart';
 import 'package:mueynail/model/chat/message_model.dart';
 import 'package:mueynail/model/message_type_enum.dart';
@@ -12,7 +13,7 @@ import 'package:mueynail/model/message_type_enum.dart';
 import 'package:mueynail/model/message_type_enum.dart';
 import 'package:mueynail/model/message_type_enum.dart';
 
-import '../component/main_app_bar.dart';
+import '../component/home/home_app_bar.dart';
 
 class ChatScreen extends StatefulWidget {
 
@@ -64,7 +65,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MainAppBar(),
+      appBar: const ChatAppBar(),
       body: Stack(
         children: [
           ListView.builder(

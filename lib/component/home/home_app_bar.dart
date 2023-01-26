@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mueynail/const/style.dart';
 import 'package:mueynail/const/value.dart';
 
-class MainAppBar extends StatelessWidget with PreferredSizeWidget {
-  const MainAppBar({Key? key}) : super(key: key);
+class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
+  const HomeAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

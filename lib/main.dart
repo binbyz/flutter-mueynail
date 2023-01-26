@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/component/main_navigation.dart';
+import 'package:mueynail/component/global/global_navigation.dart';
 import 'package:mueynail/const/color.dart';
 import 'package:mueynail/screen/chat_screen.dart';
 import 'package:mueynail/screen/home_screen.dart';
@@ -40,7 +40,7 @@ class _AppScaffoldState extends State<AppScaffold> {
 
   Widget buildScreen() {
     if (currentNavigation == 1) {
-      return ChatScreen();
+      return const ChatScreen();
     } else {
       return const HomeScreen();
     }
@@ -50,7 +50,7 @@ class _AppScaffoldState extends State<AppScaffold> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: buildScreen(),
-      bottomNavigationBar: MainNavigation(onItemTapped: onSelectNavigation, currentIndex: currentNavigation),
+      bottomNavigationBar: GlobalNavigation(onItemTapped: onSelectNavigation, currentIndex: currentNavigation),
     );
   }
 }

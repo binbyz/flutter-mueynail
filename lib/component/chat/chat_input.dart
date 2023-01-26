@@ -8,9 +8,15 @@ class ChatInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 15, bottom: 10, top: 10, right: 15),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(
+          top: BorderSide(color: Colors.black12, width: 0.5),
+          bottom: BorderSide(color: Colors.black12, width: 0.5),
+        ),
+      ),
       height: 50,
       width: double.infinity,
-      color: Colors.white,
       child: Row(
         children: [
           GestureDetector(

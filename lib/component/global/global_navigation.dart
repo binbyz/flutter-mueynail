@@ -3,11 +3,11 @@ import 'package:mueynail/const/color.dart';
 import 'package:mueynail/const/style.dart';
 import 'package:mueynail/const/value.dart';
 
-class MainNavigation extends StatelessWidget {
+class GlobalNavigation extends StatelessWidget {
   final ValueChanged<int> onItemTapped;
   final int currentIndex;
 
-  const MainNavigation({required this.onItemTapped, required this.currentIndex, Key? key}) : super(key: key);
+  const GlobalNavigation({required this.onItemTapped, required this.currentIndex, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

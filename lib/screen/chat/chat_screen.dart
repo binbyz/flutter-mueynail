@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/component/chat/bubble.dart';
-import 'package:mueynail/component/chat/chat_app_bar.dart';
-import 'package:mueynail/component/chat/chat_input.dart';
-import 'package:mueynail/model/chat/message_model.dart';
-import 'package:mueynail/model/message_type_enum.dart';
-import 'package:mueynail/model/message_type_enum.dart';
-import 'package:mueynail/model/message_type_enum.dart';
-import 'package:mueynail/model/message_type_enum.dart';
-import 'package:mueynail/model/message_type_enum.dart';
-import 'package:mueynail/model/message_type_enum.dart';
-import 'package:mueynail/model/message_type_enum.dart';
-import 'package:mueynail/model/message_type_enum.dart';
-import 'package:mueynail/model/message_type_enum.dart';
-
-import '../component/home/home_app_bar.dart';
+import 'package:mueynail/screen/chat/component/bubble.dart';
+import 'package:mueynail/screen/chat/component/chat_app_bar.dart';
+import 'package:mueynail/screen/chat/component/chat_input.dart';
+import 'package:mueynail/screen/chat/model/message_model.dart';
+import 'package:mueynail/screen/chat/model/message_type_enum.dart';
 
 class ChatScreen extends StatefulWidget {
 

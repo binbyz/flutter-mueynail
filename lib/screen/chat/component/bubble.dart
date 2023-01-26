@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/const/color.dart';
-import 'package:mueynail/model/chat/message_model.dart';
-import 'package:mueynail/model/message_type_enum.dart';
+import 'package:mueynail/screen/chat/model/message_model.dart';
+import 'package:mueynail/screen/chat/model/message_type_enum.dart';
 
 class Bubble extends StatelessWidget {
   final Message message;

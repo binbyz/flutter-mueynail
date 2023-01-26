@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/const/color.dart';
 import 'package:mueynail/model/chat/message_model.dart';
+import 'package:mueynail/model/message_type_enum.dart';
 
 class Bubble extends StatelessWidget {
   final Message message;
@@ -12,16 +13,16 @@ class Bubble extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
       child: Align(
-        alignment: message.type == 'receiver' ? Alignment.topLeft : Alignment.topRight,
+        alignment: (message.type == MessageType.receiver ? Alignment.topLeft : Alignment.topRight),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: message.type == 'receiver' ? Colors.black12 : primaryColor,
+            color: (message.type == MessageType.receiver ? Colors.black12 : primaryColor),
           ),
           padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
           child: Text(
             message.content,
-            style: TextStyle(color: message.type == 'receiver' ? Colors.black : Colors.white),
+            style: TextStyle(color: (message.type == MessageType.receiver ? Colors.black : Colors.white)),
           ),
         ),
       ),

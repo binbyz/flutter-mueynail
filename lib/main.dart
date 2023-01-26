@@ -40,7 +40,7 @@ class _AppScaffoldState extends State<AppScaffold> {
 
   Widget buildScreen() {
     if (currentNavigation == 1) {
-      return const ChatScreen();
+      return ChatScreen();
     } else {
       return const HomeScreen();
     }

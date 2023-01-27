@@ -3,6 +3,7 @@ import 'package:mueynail/component/global_navigation.dart';
 import 'package:mueynail/const/color.dart';
 import 'package:mueynail/screen/chat/chat_screen.dart';
 import 'package:mueynail/screen/home/home_screen.dart';
+import 'package:mueynail/screen/reservation/reservation_screen.dart';
 
 void main() {
   runApp(
@@ -41,6 +42,8 @@ class _AppScaffoldState extends State<AppScaffold> {
   Widget buildScreen() {
     if (currentNavigation == 1) {
       return const ChatScreen();
+    } else if (currentNavigation == 2) {
+      return const ReservationScreen();
     } else {
       return const HomeScreen();
     }

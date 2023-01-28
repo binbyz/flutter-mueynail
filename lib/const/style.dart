@@ -15,7 +15,7 @@ final navigationTextStyle = brandTextStyle.copyWith(
 
 final titleTextStyle = brandTextStyle.copyWith(
   fontSize: 20,
-  fontWeight: FontWeight.w900,
+  fontWeight: FontWeight.w700,
   letterSpacing: -1.5,
 );
 

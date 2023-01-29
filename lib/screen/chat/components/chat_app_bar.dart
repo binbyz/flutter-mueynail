@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/const/color.dart';
-import 'package:mueynail/const/style.dart';
+import 'package:mueynail/constants/color.dart';
+import 'package:mueynail/constants/style.dart';
 
 class ChatAppBar extends StatelessWidget with PreferredSizeWidget {
   const ChatAppBar({Key? key}) : super(key: key);

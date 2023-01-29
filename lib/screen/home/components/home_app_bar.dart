@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/const/style.dart';
-import 'package:mueynail/const/value.dart';
+import 'package:mueynail/constants/style.dart';
+import 'package:mueynail/constants/value.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   const HomeAppBar({Key? key}) : super(key: key);

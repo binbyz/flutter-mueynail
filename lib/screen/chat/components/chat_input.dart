@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/const/color.dart';
+import 'package:mueynail/constants/color.dart';
 
 class ChatInput extends StatelessWidget {
   const ChatInput({Key? key}) : super(key: key);

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/screen/home/component/content_box.dart';
-import 'package:mueynail/screen/home/component/event_scorllview.dart';
-import 'package:mueynail/screen/home/component/today_art_carousel.dart';
-import 'package:mueynail/screen/home/component/home_app_bar.dart';
+
+import 'components/content_box.dart';
+import 'components/event_scorllview.dart';
+import 'components/home_app_bar.dart';
+import 'components/today_art_carousel.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

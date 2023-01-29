@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/const/style.dart';
+import 'package:mueynail/constants/style.dart';
 
 final now = DateTime.now();
 

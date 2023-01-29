@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/const/color.dart';
-import 'package:mueynail/screen/chat/model/message_model.dart';
-import 'package:mueynail/screen/chat/model/message_type_enum.dart';
+import 'package:mueynail/app/entities/reservation/message_dto.dart';
+import 'package:mueynail/app/enum/message_type_enum.dart';
+import 'package:mueynail/constants/color.dart';
 
 class Bubble extends StatelessWidget {
-  final Message message;
+  final MessageDto message;
 
   const Bubble({required this.message, Key? key}) : super(key: key);
 

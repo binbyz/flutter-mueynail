@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/component/global_navigation.dart';
-import 'package:mueynail/const/color.dart';
+import 'package:mueynail/app/components/app_navigation.dart';
+import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/screen/chat/chat_screen.dart';
 import 'package:mueynail/screen/home/home_screen.dart';
 import 'package:mueynail/screen/reservation/reservation_screen.dart';
@@ -53,7 +53,7 @@ class _AppScaffoldState extends State<AppScaffold> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: buildScreen(),
-      bottomNavigationBar: GlobalNavigation(onItemTapped: onSelectNavigation, currentIndex: currentNavigation),
+      bottomNavigationBar: AppNavigation(onItemTapped: onSelectNavigation, currentIndex: currentNavigation),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/const/color.dart';
+import 'package:mueynail/constants/color.dart';
 
 class ReservationButton extends StatelessWidget {
   const ReservationButton({Key? key}) : super(key: key);

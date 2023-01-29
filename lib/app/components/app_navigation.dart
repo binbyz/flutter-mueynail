@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/const/color.dart';
-import 'package:mueynail/const/style.dart';
-import 'package:mueynail/const/value.dart';
+import 'package:mueynail/constants/color.dart';
+import 'package:mueynail/constants/style.dart';
+import 'package:mueynail/constants/value.dart';
 
-class GlobalNavigation extends StatelessWidget {
+class AppNavigation extends StatelessWidget {
   final ValueChanged<int> onItemTapped;
   final int currentIndex;
 
-  const GlobalNavigation({required this.onItemTapped, required this.currentIndex, Key? key}) : super(key: key);
+  const AppNavigation({required this.onItemTapped, required this.currentIndex, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

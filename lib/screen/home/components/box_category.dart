@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/const/color.dart';
-import 'package:mueynail/screen/reservation/model/design_enum.dart';
+import 'package:mueynail/app/enum/art_enum.dart';
+import 'package:mueynail/constants/color.dart';
 
-class InteractRadioButton extends StatelessWidget {
+class BoxCategory extends StatelessWidget {
   final Function tapCallback;
-  final Design design;
+  final ArtEnum design;
   final bool active;
 
+  const BoxCategory({
+    Key? key,
+    required this.design,
+    required this.tapCallback,
+    required this.active,
+  }) : super(key: key);
+
   static final BoxDecoration _enabledDecoration = BoxDecoration(
-    color: primaryColorOpacity,
+    color: Colors.white,
     border: Border.all(color: primaryColor, width: 2),
     borderRadius: const BorderRadius.all(Radius.circular(10)),
   );
@@ -18,9 +25,6 @@ class InteractRadioButton extends StatelessWidget {
     border: Border.all(color: Colors.black38, width: 0.5),
     borderRadius: const BorderRadius.all(Radius.circular(10)),
   );
-
-  const InteractRadioButton({Key? key, required this.design, required this.tapCallback, required this.active})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +38,13 @@ class InteractRadioButton extends StatelessWidget {
         width: 100,
         decoration: active ? _enabledDecoration : _disabledDecoration,
         child: Center(
-          child: Text(design.label, style: const TextStyle(fontWeight: FontWeight.w700, color: primaryColor)),
+          child: Text(
+            design.label,
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              color: active ? primaryColor : Colors.black45,
+            ),
+          ),
         ),
       ),
     );

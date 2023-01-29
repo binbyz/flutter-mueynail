@@ -1,0 +1,34 @@
+{
+    "art_group": [
+        {
+            "art_group_id": 1,
+            "art_group_enum": "todayArt",
+            "children": [
+                {
+                    "id": 1,
+                    "label": "베이비치크",
+                    "price": 45000,
+                    "summary": "핑크색퐁 아트",
+                    "description": "blah blah~",
+                    "images": {
+                        "icon_url": "",
+                        "thumbnail_url": "",
+                        "detail_url": ""
+                    }
+                },
+                {
+                    "id": 1,
+                    "label": "베이비치크",
+                    "price": 45000,
+                    "summary": "핑크색퐁 아트",
+                    "description": "blah blah~",
+                    "images": {
+                        "icon_url": "",
+                        "thumbnail_url": "",
+                        "detail_url": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

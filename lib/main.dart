@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/components/app_navigation.dart';
 import 'package:mueynail/constants/color.dart';
-import 'package:mueynail/screen/chat/chat_screen.dart';
-import 'package:mueynail/screen/home/home_screen.dart';
-import 'package:mueynail/screen/reservation/reservation_screen.dart';
+
+import 'screens/chat/chat_screen.dart';
+import 'screens/home/home_screen.dart';
+import 'screens/reservation/reservation_screen.dart';
 
 void main() {
   runApp(

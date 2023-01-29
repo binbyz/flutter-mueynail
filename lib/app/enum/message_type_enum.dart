@@ -1,11 +1,11 @@
-enum MessageType {
+enum MessageTypeEnum {
   sender('sender'),
   receiver('receiver');
 
-  const MessageType(this.type);
+  const MessageTypeEnum(this.type);
   final String type;
 
-  factory MessageType.fromString(String type) {
-    return MessageType.values.firstWhere((element) => element.type == type);
+  factory MessageTypeEnum.fromString(String type) {
+    return MessageTypeEnum.values.firstWhere((element) => element.type == type);
   }
 }

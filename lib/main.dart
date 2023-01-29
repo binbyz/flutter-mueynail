@@ -18,6 +18,10 @@ void main() {
             backgroundColor: primaryColor,
           ),
         ),
+        inputDecorationTheme: const InputDecorationTheme(
+          enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: primaryColorOpacity)),
+          focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: primaryColor)),
+        ),
       ),
       home: const AppScaffold(),
     ),
@@ -53,7 +57,9 @@ class _AppScaffoldState extends State<AppScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: buildScreen(),
+      body: Container(
+        child: buildScreen(),
+      ),
       bottomNavigationBar: AppNavigation(onItemTapped: onSelectNavigation, currentIndex: currentNavigation),
     );
   }

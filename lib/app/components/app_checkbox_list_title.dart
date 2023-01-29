@@ -61,10 +61,12 @@ class _AppCheckboxListTitleState extends State<AppCheckboxListTitle> {
                   const SizedBox(width: 0),
               ],
             ),
-            secondary: Icon(
-              Icons.shopping_cart_checkout_rounded,
-              color: value ? primaryColor : Colors.black45,
-            ),
+            secondary: (widget.icon != null)
+                ? Icon(
+                    Icons.shopping_cart_outlined,
+                    color: value ? primaryColor : Colors.black45,
+                  )
+                : const SizedBox(),
             value: value,
             onChanged: (newValue) {
               value = !value;

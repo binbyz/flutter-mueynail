@@ -42,6 +42,8 @@ class ChatInput extends StatelessWidget {
                 hintText: "문의하기",
                 hintStyle: TextStyle(color: Colors.black54),
                 border: InputBorder.none,
+                enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.transparent)),
+                focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.transparent)),
               ),
             ),
           ),

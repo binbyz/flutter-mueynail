@@ -47,5 +47,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Authorization is required to determine more accurate client requirements</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Authorization is required to determine more accurate client requirements</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Authorization is required to determine more accurate client requirements</string>
 </dict>
 </plist>

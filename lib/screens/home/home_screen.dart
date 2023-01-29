@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'components/content_box.dart';
-import 'components/event_scorllview.dart';
+import 'components/event_scrollview.dart';
 import 'components/home_app_bar.dart';
 import 'components/today_art_carousel.dart';
 

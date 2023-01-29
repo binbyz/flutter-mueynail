@@ -6,6 +6,7 @@ class ContentBox extends StatelessWidget {
   final Widget children;
   final double contentPadding;
   final bool visibleTitle;
+  final double titleBottom;
 
   const ContentBox({
     Key? key,
@@ -13,6 +14,7 @@ class ContentBox extends StatelessWidget {
     required this.children,
     this.contentPadding = 10,
     this.visibleTitle = true,
+    this.titleBottom = 10,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class ContentBox extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 10, top: titleTopPadding, right: 10, bottom: 15),
+          padding: EdgeInsets.only(left: 10, top: titleTopPadding, right: 10, bottom: titleBottom),
           child: Visibility(
             visible: visibleTitle,
             child: Text(title, style: titleTextStyle, textAlign: TextAlign.start),

@@ -2,7 +2,8 @@
     "art_group": [
         {
             "art_group_id": 1,
-            "art_group_enum": "todayArt",
+            "art_group_key": "today_art",
+            "price": 45000,
             "children": [
                 {
                     "id": 1,
@@ -17,18 +18,36 @@
                     }
                 },
                 {
-                    "id": 1,
-                    "label": "베이비치크",
+                    "id": 2,
+                    "label": "",
                     "price": 45000,
                     "summary": "핑크색퐁 아트",
                     "description": "blah blah~",
                     "images": {
-                        "icon_url": "",
+                        "icon_url": "누드페일",
                         "thumbnail_url": "",
                         "detail_url": ""
                     }
                 }
             ]
+        },
+        {
+            "art_group_id": 2,
+            "art_group_key": "one_tone",
+            "price": 40000,
+            "children": []
+        },
+        {
+            "art_group_id": 3,
+            "price": 40000,
+            "art_group_key": "french",
+            "children": []
+        },
+        {
+            "art_group_id": 9,
+            "price": 40000,
+            "art_group_key": "custom",
+            "children": []
         }
     ]
 }

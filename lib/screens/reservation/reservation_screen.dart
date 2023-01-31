@@ -3,6 +3,7 @@ import 'package:mueynail/app/components/app_checkbox_list_title.dart';
 import 'package:mueynail/app/enum/art_group_enum.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/screens/reservation/components/booking_date.dart';
+import 'package:mueynail/screens/reservation/components/booking_time.dart';
 
 import '../home/components/content_box.dart';
 import '../home/components/home_app_bar.dart';
@@ -19,8 +20,33 @@ class ReservationScreen extends StatefulWidget {
 }
 
 class _ReservationScreenState extends State<ReservationScreen> {
+  void _showReservationStatusDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          title: Text('예약 상태'),
+          content: SizedBox(
+            height: 200,
+            width: 300,
+            child: Text('Hello, World'),
+          ),
+          actions: [
+            TextButton(onPressed: () {}, child: Text('예약 관리 이동')),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration.zero, () => _showReservationStatusDialog(context));
+
     return Scaffold(
       appBar: const HomeAppBar(),
       body: Stack(
@@ -77,8 +103,19 @@ class _ReservationScreenState extends State<ReservationScreen> {
       summary: '스케쥴에 따라 시간은 조율될 수 있습니다',
       visibleTitle: false,
       children: Wrap(
+        spacing: 10,
+        runSpacing: 10,
+        alignment: WrapAlignment.spaceBetween,
         children: [
-          
+          BookingTime(dateTime: DateTime.now(), checked: false),
+          BookingTime(dateTime: DateTime.now(), checked: true),
+          BookingTime(dateTime: DateTime.now(), checked: false),
+          BookingTime(dateTime: DateTime.now(), checked: false),
+          BookingTime(dateTime: DateTime.now(), checked: false),
+          BookingTime(dateTime: DateTime.now(), checked: false),
+          BookingTime(dateTime: DateTime.now(), checked: false),
+          BookingTime(dateTime: DateTime.now(), checked: false),
+          BookingTime(dateTime: DateTime.now(), checked: false),
         ],
       ),
     );
@@ -114,9 +151,11 @@ class _ReservationScreenState extends State<ReservationScreen> {
               AppCheckboxListTitle(label: '베이베치크', depthColor: primaryColorOpacity),
             ],
           ),
-          AppCheckboxListTitle(label: ArtGroupEnum.oneTone.label),
-          AppCheckboxListTitle(label: ArtGroupEnum.french.label),
-          AppCheckboxListTitle(label: ArtGroupEnum.custom.label),
+          AppCheckboxListTitle(label: ArtGroupEnum.oneToneArt.label),
+          AppCheckboxListTitle(label: ArtGroupEnum.frenchArt.label),
+          AppCheckboxListTitle(label: ArtGroupEnum.brandArt.label),
+          AppCheckboxListTitle(label: ArtGroupEnum.seasonOffArt.label),
+          AppCheckboxListTitle(label: ArtGroupEnum.customArt.label),
         ],
       ),
     );
@@ -171,7 +210,19 @@ class _ReservationScreenState extends State<ReservationScreen> {
         children: const [
           TextField(
             keyboardType: TextInputType.multiline,
-            maxLines: null,
+            maxLines: 3,
+            decoration: InputDecoration(
+              fillColor: Colors.white,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderSide: BorderSide(width: 1, color: primaryColor),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderSide: BorderSide(width: 1, color: primaryColor),
+              ),
+              hintText: '기타 궁금하신 부분 편하게 남겨주세요 :)',
+            ),
           ),
         ],
       ),

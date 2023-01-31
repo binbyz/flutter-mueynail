@@ -74,7 +74,7 @@ class _AppCheckboxListTitleState extends State<AppCheckboxListTitle> {
             controlAffinity: widget.affinity,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 27),
+            padding: const EdgeInsets.only(left: 35),
             child: Column(
               children: [...?widget.children],
             ),

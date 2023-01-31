@@ -12,7 +12,6 @@ class ChatInput extends StatelessWidget {
         color: Colors.white,
         border: Border(
           top: BorderSide(color: Colors.black12, width: 0.5),
-          bottom: BorderSide(color: Colors.black12, width: 0.5),
         ),
       ),
       height: 50,

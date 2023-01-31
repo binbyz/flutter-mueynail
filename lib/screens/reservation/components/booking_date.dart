@@ -14,13 +14,13 @@ class BookingDate extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 15),
       height: 100,
       width: 80,
-      decoration: checked == true ? positiveBoxDecoration : negativeBoxDecoration,
+      decoration: checked ? positiveBoxDecoration : negativeBoxDecoration,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(child: Text('2/14', style: summaryTextStyle.copyWith(fontSize: 16))),
-            Expanded(child: Text('수요일', style: checked == true ? positiveTextStyle : negativeTextStyle)),
+            Expanded(child: Text('수요일', style: checked ? positiveTextStyle : negativeTextStyle)),
           ],
         ),
       ),

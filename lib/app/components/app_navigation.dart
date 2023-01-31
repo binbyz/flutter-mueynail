@@ -11,18 +11,27 @@ class AppNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: currentIndex,
-      onTap: onItemTapped,
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: primaryColor,
-      selectedLabelStyle: navigationTextStyle,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.other_houses_rounded), label: valueBrand),
-        BottomNavigationBarItem(icon: Icon(Icons.mode_comment), label: '문의하기'),
-        BottomNavigationBarItem(icon: Icon(Icons.medical_information), label: '예약하기'),
-        BottomNavigationBarItem(icon: Icon(Icons.card_membership_rounded), label: '멤버쉽'),
-      ],
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(
+          top: BorderSide(color: Colors.black12, width: 1),
+        ),
+      ),
+      child: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        currentIndex: currentIndex,
+        onTap: onItemTapped,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: primaryColor,
+        selectedLabelStyle: navigationTextStyle,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.other_houses_rounded), label: valueBrand),
+          BottomNavigationBarItem(icon: Icon(Icons.mode_comment), label: '문의하기'),
+          BottomNavigationBarItem(icon: Icon(Icons.medical_information), label: '예약하기'),
+          BottomNavigationBarItem(icon: Icon(Icons.card_membership_rounded), label: '멤버쉽'),
+        ],
+      ),
     );
   }
 }

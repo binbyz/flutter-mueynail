@@ -13,6 +13,12 @@ final navigationTextStyle = brandTextStyle.copyWith(
   fontWeight: FontWeight.w500,
 );
 
+final normalTextStyle = brandTextStyle.copyWith(
+  fontSize: 16,
+  color: Colors.black87,
+  fontWeight: FontWeight.w500,
+);
+
 final titleTextStyle = brandTextStyle.copyWith(
   fontSize: 20,
   fontWeight: FontWeight.w700,

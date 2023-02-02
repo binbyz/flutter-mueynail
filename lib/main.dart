@@ -18,6 +18,15 @@ void main() {
             backgroundColor: primaryColor,
           ),
         ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: primaryColor,
+            textStyle: const TextStyle(
+              letterSpacing: -0.5,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
         inputDecorationTheme: const InputDecorationTheme(
           enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: primaryColorOpacity)),
           focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: primaryColor)),

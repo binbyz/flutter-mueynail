@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/components/app_checkbox_list_title.dart';
 import 'package:mueynail/app/enum/art_group_enum.dart';
+import 'package:mueynail/app/enum/booking_step_enum.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/screens/reservation/components/booking_date.dart';
+import 'package:mueynail/screens/reservation/components/booking_modal.dart';
 import 'package:mueynail/screens/reservation/components/booking_time.dart';
 
 import '../home/components/content_box.dart';
@@ -20,32 +22,11 @@ class ReservationScreen extends StatefulWidget {
 }
 
 class _ReservationScreenState extends State<ReservationScreen> {
-  void _showReservationStatusDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
-          ),
-          title: Text('예약 상태'),
-          content: SizedBox(
-            height: 200,
-            width: 300,
-            child: Text('Hello, World'),
-          ),
-          actions: [
-            TextButton(onPressed: () {}, child: Text('예약 관리 이동')),
-          ],
-        );
-      },
-    );
-  }
+  BookingStep currentStep = BookingStep.depositConfirmed;
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration.zero, () => _showReservationStatusDialog(context));
+    Future.delayed(Duration.zero, () => showBookingModal(context, currentStep));
 
     return Scaffold(
       appBar: const HomeAppBar(),

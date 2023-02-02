@@ -4,7 +4,6 @@ import 'package:mueynail/app/enum/art_group_enum.dart';
 import 'package:mueynail/app/enum/booking_step_enum.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/screens/reservation/components/booking_date.dart';
-import 'package:mueynail/screens/reservation/components/booking_modal.dart';
 import 'package:mueynail/screens/reservation/components/booking_time.dart';
 
 import '../home/components/content_box.dart';
@@ -26,7 +25,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration.zero, () => showBookingModal(context, currentStep));
+    // Future.delayed(Duration.zero, () => showBookingModal(context, currentStep));
 
     return Scaffold(
       appBar: const HomeAppBar(),

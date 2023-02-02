@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/components/app_navigation.dart';
 import 'package:mueynail/constants/color.dart';
+import 'package:mueynail/screens/member/member_screen.dart';
 
 import 'screens/chat/chat_screen.dart';
 import 'screens/home/home_screen.dart';
@@ -45,31 +46,28 @@ class AppScaffold extends StatefulWidget {
 }
 
 class _AppScaffoldState extends State<AppScaffold> {
-  int currentNavigation = 0;
+  int _currentNavigation = 0;
+
+  List<Widget> screens = [
+    const HomeScreen(),
+    const ChatScreen(),
+    const ReservationScreen(),
+    const MemberScreen(),
+  ];
 
   void onSelectNavigation(int index) {
     setState(() {
-      currentNavigation = index;
+      _currentNavigation = index;
     });
-  }
-
-  Widget buildScreen() {
-    if (currentNavigation == 1) {
-      return const ChatScreen();
-    } else if (currentNavigation == 2) {
-      return const ReservationScreen();
-    } else {
-      return const HomeScreen();
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: buildScreen(),
+        child: screens.elementAt(_currentNavigation),
       ),
-      bottomNavigationBar: AppNavigation(onItemTapped: onSelectNavigation, currentIndex: currentNavigation),
+      bottomNavigationBar: AppNavigation(onItemTapped: onSelectNavigation, currentIndex: _currentNavigation),
     );
   }
 }

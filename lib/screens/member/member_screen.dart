@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MembershipScreen extends StatelessWidget {
-  const MembershipScreen({Key? key}) : super(key: key);
+class MemberScreen extends StatelessWidget {
+  const MemberScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

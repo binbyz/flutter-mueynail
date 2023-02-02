@@ -29,7 +29,7 @@ class AppNavigation extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.other_houses_rounded), label: valueBrand),
           BottomNavigationBarItem(icon: Icon(Icons.mode_comment), label: '문의하기'),
           BottomNavigationBarItem(icon: Icon(Icons.medical_information), label: '예약하기'),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite_sharp), label: '내 정보'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_2_rounded), label: '내 정보'),
         ],
       ),
     );

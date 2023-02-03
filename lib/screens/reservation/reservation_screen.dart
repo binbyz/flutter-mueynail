@@ -105,10 +105,10 @@ class _ReservationScreenState extends State<ReservationScreen> {
     return ContentBox(
       title: '네일/패디',
       summary: '필수 선택',
-      children: Row(
+      children: Column(
         children: const [
-          Expanded(flex: 1, child: AppCheckboxListTitle(label: '네일', affinity: ListTileControlAffinity.leading)),
-          Expanded(flex: 1, child: AppCheckboxListTitle(label: '패디', affinity: ListTileControlAffinity.leading)),
+          AppCheckboxListTitle(label: '네일', affinity: ListTileControlAffinity.leading),
+          AppCheckboxListTitle(label: '패디', affinity: ListTileControlAffinity.leading),
         ],
       ),
     );
@@ -144,10 +144,10 @@ class _ReservationScreenState extends State<ReservationScreen> {
   ContentBox optionTipExtensionGroup() {
     return ContentBox(
       title: '팁 연장',
-      children: Row(
+      children: Column(
         children: const [
-          Expanded(flex: 1, child: AppCheckboxListTitle(label: '전체 연장')),
-          Expanded(flex: 1, child: AppCheckboxListTitle(label: '부분 연장')),
+          AppCheckboxListTitle(label: '전체 연장'),
+          AppCheckboxListTitle(label: '부분 연장'),
         ],
       ),
     );
@@ -156,10 +156,10 @@ class _ReservationScreenState extends State<ReservationScreen> {
   ContentBox optionRemoveNail() {
     return ContentBox(
       title: '제거',
-      children: Row(
+      children: Column(
         children: const [
-          Expanded(flex: 1, child: AppCheckboxListTitle(label: '자샵 제거')),
-          Expanded(flex: 1, child: AppCheckboxListTitle(label: '타샵 제거')),
+          AppCheckboxListTitle(label: '자샵 제거'),
+          AppCheckboxListTitle(label: '타샵 제거'),
         ],
       ),
     );
@@ -170,13 +170,12 @@ class _ReservationScreenState extends State<ReservationScreen> {
       title: '케어',
       children: Column(
         children: [
-          Row(
+          Column(
             children: const [
-              Expanded(flex: 1, child: AppCheckboxListTitle(label: '네일')),
-              Expanded(flex: 1, child: AppCheckboxListTitle(label: '패디')),
+              AppCheckboxListTitle(label: '네일'),
+              AppCheckboxListTitle(label: '패디'),
             ],
           ),
-          const AppCheckboxListTitle(label: '발각질 관리'),
         ],
       ),
     );

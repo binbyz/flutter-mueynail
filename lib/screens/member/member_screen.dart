@@ -93,12 +93,12 @@ class MemberScreen extends StatelessWidget {
       children: [
         _menuPartTitle(valueBrand),
         _menuPartButton(icon: Icons.history, label: '예약 내역'),
-        _menuPartButton(icon: Icons.article_outlined, label: '후기 작성'),
+        _menuPartButton(icon: Icons.article_outlined, label: '후기 작성', description: '1000 포인트 지급'),
         _menuPartButton(icon: Icons.favorite_outline, label: '관심 아트'),
         const SizedBox(height: 15),
         _menuPartTitle('기타'),
-        _menuPartButton(icon: Icons.person_search_outlined, label: '친구 초대', description: '(5000 포인트 지급)'),
-        _menuPartButton(icon: Icons.exit_to_app_outlined, label: '회원 탈퇴'),
+        _menuPartButton(icon: Icons.person_search_outlined, label: '친구 초대', description: '3000 포인트 지급'),
+        _menuPartButton(icon: Icons.exit_to_app_outlined, label: '회원 탈퇴', blindItem: true),
       ],
     );
   }
@@ -107,14 +107,27 @@ class MemberScreen extends StatelessWidget {
     return Text(title, style: normalTextStyle.copyWith(color: Colors.black54, fontSize: 14));
   }
 
-  Widget _menuPartButton({required IconData icon, required String label, String description = ''}) {
+  Widget _menuPartButton({
+    required IconData icon,
+    required String label,
+    String description = '',
+    bool blindItem = false,
+  }) {
+    final color = (blindItem == false) ? primaryColor : Colors.black54;
+
+    final textStyle = TextStyle(
+      color: color,
+      fontSize: (blindItem == false) ? 16 : 12,
+      fontWeight: (blindItem == false) ? FontWeight.w500 : FontWeight.w200,
+    );
+
     return TextButton(
       onPressed: () {},
       child: Row(
         children: [
-          Icon(icon),
+          Icon(icon, size: 16, color: color),
           const SizedBox(width: 7),
-          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+          Text(label, style: textStyle),
           const SizedBox(width: 7),
           Text(description, style: summaryTextStyle)
         ],

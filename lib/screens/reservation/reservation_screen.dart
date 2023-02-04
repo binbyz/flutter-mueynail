@@ -7,7 +7,7 @@ import 'package:mueynail/screens/reservation/components/booking_date.dart';
 import 'package:mueynail/screens/reservation/components/booking_time.dart';
 
 import '../home/components/content_box.dart';
-import '../home/components/home_app_bar.dart';
+import '../home/home_app_bar.dart';
 import 'components/reservation_button.dart';
 
 const String iconUrl =
@@ -56,7 +56,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
     return ContentBox(
       title: '예약 날짜',
       summary: '스케쥴에 따라 시간은 조율될 수 있습니다',
-      children: SingleChildScrollView(
+      child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 5),
@@ -82,7 +82,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
       title: '예약 시간',
       summary: '스케쥴에 따라 시간은 조율될 수 있습니다',
       visibleTitle: false,
-      children: Wrap(
+      child: Wrap(
         spacing: 10,
         runSpacing: 10,
         alignment: WrapAlignment.spaceBetween,
@@ -105,7 +105,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
     return ContentBox(
       title: '네일/패디',
       summary: '필수 선택',
-      children: Column(
+      child: Column(
         children: const [
           AppCheckboxListTitle(label: '네일', affinity: ListTileControlAffinity.leading),
           AppCheckboxListTitle(label: '패디', affinity: ListTileControlAffinity.leading),
@@ -119,7 +119,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
       title: '아트 선택',
       summary: '필수 선택',
       titleBottom: 0,
-      children: Column(
+      child: Column(
         children: [
           AppCheckboxListTitle(
             label: ArtGroupEnum.todayArt.label,
@@ -144,7 +144,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
   ContentBox optionTipExtensionGroup() {
     return ContentBox(
       title: '팁 연장',
-      children: Column(
+      child: Column(
         children: const [
           AppCheckboxListTitle(label: '전체 연장'),
           AppCheckboxListTitle(label: '부분 연장'),
@@ -156,7 +156,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
   ContentBox optionRemoveNail() {
     return ContentBox(
       title: '제거',
-      children: Column(
+      child: Column(
         children: const [
           AppCheckboxListTitle(label: '자샵 제거'),
           AppCheckboxListTitle(label: '타샵 제거'),
@@ -168,7 +168,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
   ContentBox optionCare() {
     return ContentBox(
       title: '케어',
-      children: Column(
+      child: Column(
         children: [
           Column(
             children: const [
@@ -185,7 +185,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
     return ContentBox(
       title: '기타 요구사항',
       summary: '선택 외 요구사항 입력',
-      children: Column(
+      child: Column(
         children: const [
           TextField(
             keyboardType: TextInputType.multiline,

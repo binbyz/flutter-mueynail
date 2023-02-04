@@ -4,7 +4,7 @@ import 'package:mueynail/constants/style.dart';
 class ContentBox extends StatelessWidget {
   final String title;
   final String? summary;
-  final Widget children;
+  final Widget child;
   final double contentPadding;
   final bool visibleTitle;
   final double titleBottom;
@@ -12,7 +12,7 @@ class ContentBox extends StatelessWidget {
   const ContentBox({
     Key? key,
     required this.title,
-    required this.children,
+    required this.child,
     this.summary,
     this.contentPadding = 10,
     this.visibleTitle = true,
@@ -44,7 +44,7 @@ class ContentBox extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: contentPadding),
-            child: children,
+            child: child,
           ),
         ],
       ),

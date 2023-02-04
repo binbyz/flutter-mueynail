@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:mueynail/constants/style.dart';
 
 final List<String> images = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
@@ -48,6 +49,7 @@ class _TodayArtCarouselState extends State<TodayArtCarousel> {
 
   Widget makeCarouselItem({required int index}) {
     return Container(
+      width: 340,
       margin: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: [
@@ -56,14 +58,14 @@ class _TodayArtCarouselState extends State<TodayArtCarousel> {
               Center(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
-                  child: Image.network(images[index], fit: BoxFit.cover, width: 1000),
+                  child: Image.network(images[index], fit: BoxFit.cover, width: 340),
                 ),
               ),
               Positioned(
                 right: 10,
                 bottom: 5,
                 child: ElevatedButton(
-                  child: Text('예약'),
+                  child: const Text('예약'),
                   onPressed: () {},
                 ),
               )
@@ -74,20 +76,19 @@ class _TodayArtCarouselState extends State<TodayArtCarousel> {
             width: MediaQuery.of(context).size.width / 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
+              children: [
                 Text(
                   '베이비치크',
                   maxLines: 1,
-                  style: TextStyle(color: Colors.pink, fontSize: 16),
+                  style: titleTextStyle.copyWith(fontSize: 16),
                 ),
                 Text(
                   '꾸안꾸 스타일의 베이비 치크 화려한 스타일을 좋아하지 않은 고객들에게 딱이예요!',
                   maxLines: 3,
                   softWrap: true,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black),
+                  style: summaryTextStyle,
                 ),
-                Text('45,000원', maxLines: 1, style: TextStyle()),
               ],
             ),
           ),

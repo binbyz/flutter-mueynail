@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mueynail/app/entities/reservation/message_dto.dart';
 import 'package:mueynail/app/enum/message_type_enum.dart';
 
+import 'chat_app_bar.dart';
 import 'components/bubble.dart';
-import 'components/chat_app_bar.dart';
 import 'components/chat_input.dart';
 
 class ChatScreen extends StatefulWidget {

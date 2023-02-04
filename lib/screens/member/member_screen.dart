@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
-import 'package:mueynail/screens/home/components/home_app_bar.dart';
+import 'package:mueynail/screens/home/home_app_bar.dart';
 
 class MemberScreen extends StatelessWidget {
   const MemberScreen({Key? key}) : super(key: key);

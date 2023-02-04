@@ -1,8 +1,8 @@
 import 'package:mueynail/app/enum/message_type_enum.dart';
 
-class MessageDto {
+class MessageModel {
   final String content;
   final MessageTypeEnum type;
 
-  const MessageDto({required this.content, required this.type});
+  const MessageModel({required this.content, required this.type});
 }

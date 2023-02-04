@@ -67,7 +67,10 @@ class _AppScaffoldState extends State<AppScaffold> {
       body: Container(
         child: screens.elementAt(_currentNavigation),
       ),
-      bottomNavigationBar: AppNavigation(onItemTapped: onSelectNavigation, currentIndex: _currentNavigation),
+      bottomNavigationBar: AppNavigation(
+        onItemTapped: onSelectNavigation,
+        currentIndex: _currentNavigation,
+      ),
     );
   }
 }

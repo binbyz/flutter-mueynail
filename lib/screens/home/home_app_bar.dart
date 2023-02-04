@@ -8,6 +8,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
         background: SafeArea(

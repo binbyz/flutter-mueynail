@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:infinite_carousel/infinite_carousel.dart';
 
 final List<String> images = [
@@ -24,17 +24,26 @@ class SeasonOffArtCollection extends StatelessWidget {
         anchor: 0.0,
         velocityFactor: 0.2,
         itemBuilder: (context, index, realIndex) {
-          return makeCarouselItem(index: index);
+          return makeCarouselItem(context: context, index: index);
         },
       ),
     );
   }
 
-  Widget makeCarouselItem({required int index}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2.5),
-      child: GestureDetector(
-        onTap: () {},
+  Widget makeCarouselItem({required BuildContext context, required int index}) {
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
+          builder: (builder) {
+            return Container(
+              child: Text('Hello, World'),
+            );
+          },
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 2.5),
         child: Stack(
           children: [
             ClipRRect(

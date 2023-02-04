@@ -3,6 +3,7 @@ import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
 import 'package:mueynail/screens/home/home_app_bar.dart';
+import 'package:mueynail/screens/member/reservation_history.dart';
 
 class MemberScreen extends StatelessWidget {
   const MemberScreen({Key? key}) : super(key: key);
@@ -92,13 +93,13 @@ class MemberScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _menuPartTitle(valueBrand),
-        _menuPartButton(icon: Icons.history, label: '예약 내역'),
-        _menuPartButton(icon: Icons.article_outlined, label: '후기 작성', description: '1000 포인트 지급'),
-        _menuPartButton(icon: Icons.favorite_outline, label: '관심 아트'),
+        _menuPartButton(context: context, icon: Icons.history, label: '예약 내역'),
+        _menuPartButton(context: context, icon: Icons.article_outlined, label: '후기 작성', description: '1000 포인트 지급'),
+        _menuPartButton(context: context, icon: Icons.favorite_outline, label: '관심 아트'),
         const SizedBox(height: 15),
         _menuPartTitle('기타'),
-        _menuPartButton(icon: Icons.person_search_outlined, label: '친구 초대', description: '3000 포인트 지급'),
-        _menuPartButton(icon: Icons.exit_to_app_outlined, label: '회원 탈퇴', blindItem: true),
+        _menuPartButton(context: context, icon: Icons.person_search_outlined, label: '친구 초대', description: '3000 포인트 지급'),
+        _menuPartButton(context: context, icon: Icons.exit_to_app_outlined, label: '회원 탈퇴', blindItem: true),
       ],
     );
   }
@@ -108,6 +109,7 @@ class MemberScreen extends StatelessWidget {
   }
 
   Widget _menuPartButton({
+    required BuildContext context,
     required IconData icon,
     required String label,
     String description = '',
@@ -122,7 +124,11 @@ class MemberScreen extends StatelessWidget {
     );
 
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (conext) => ReservationHistory()),
+        );
+      },
       child: Row(
         children: [
           Icon(icon, size: 16, color: color),

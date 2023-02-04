@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/constants/style.dart';
+import 'package:mueynail/app/components/ink_well_card.dart';
 
 final now = DateTime.now();
 
@@ -41,7 +41,7 @@ class EventScrollview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -53,18 +53,14 @@ class EventScrollview extends StatelessWidget {
           int remainDays = endAt.difference(now).inDays;
           String remainText = (remainDays > 0) ? '$remainDays일 남음' : '마감';
 
-          return Card(
-            child: Container(
-              decoration: (remainDays > 0) ? positiveBoxDecoration : negativeBoxDecoration,
-              width: 160,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(event['title']!),
-                  Text(event['summary']!),
-                  Text(remainText),
-                ],
-              ),
+          return InkWellCard(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(event['title']!),
+                Text(event['summary']!),
+                Text(remainText),
+              ],
             ),
           );
         },

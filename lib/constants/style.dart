@@ -32,7 +32,7 @@ const summaryTextStyle = TextStyle(
 );
 
 final positiveBoxDecoration = BoxDecoration(
-  color: Colors.white,
+  color: Colors.transparent,
   border: Border.all(color: primaryColor),
   borderRadius: const BorderRadius.all(Radius.circular(5.0)),
   boxShadow: [
@@ -41,7 +41,7 @@ final positiveBoxDecoration = BoxDecoration(
 );
 
 final negativeBoxDecoration = BoxDecoration(
-  color: Colors.white,
+  color: Colors.transparent,
   border: Border.all(color: Colors.black38),
   borderRadius: const BorderRadius.all(Radius.circular(5.0)),
   boxShadow: [

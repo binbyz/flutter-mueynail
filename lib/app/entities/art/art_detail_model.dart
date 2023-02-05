@@ -5,8 +5,9 @@ class ArtDetailModel {
   final String name;
   final String thumbnailUrl;
   final String detailUrl;
-  final Color? color;
   final String description;
+  final Color? color;
+  final int? price;
 
   const ArtDetailModel({
     required this.id,
@@ -15,5 +16,6 @@ class ArtDetailModel {
     required this.detailUrl,
     required this.description,
     this.color,
+    this.price,
   });
 }

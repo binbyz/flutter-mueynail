@@ -3,10 +3,10 @@ import 'package:mueynail/app/entities/art/art_detail_model.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/screens/image_viewer.dart';
 
-class ArtDetail extends StatelessWidget {
+class ArtDetailModal extends StatelessWidget {
   final ArtDetailModel detail;
 
-  const ArtDetail({Key? key, required this.detail}) : super(key: key);
+  const ArtDetailModal({Key? key, required this.detail}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,7 @@ void showArtDetailModal(BuildContext context, ArtDetailModel detailModel) {
       borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
     ),
     builder: (builder) {
-      return ArtDetail(detail: detailModel);
+      return ArtDetailModal(detail: detailModel);
     },
   );
 }

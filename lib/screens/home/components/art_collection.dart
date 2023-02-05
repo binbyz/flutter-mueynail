@@ -22,8 +22,8 @@ const ArtDetailModel detailModel = ArtDetailModel(
   description: '세상에 하나밖에 없는\n단 한 사람만을 위한\n아트입니다.',
 );
 
-class SeasonOffArtCollection extends StatelessWidget {
-  const SeasonOffArtCollection({Key? key}) : super(key: key);
+class ArtCollection extends StatelessWidget {
+  const ArtCollection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/screens/home/components/season_off_art.dart';
+import 'package:mueynail/screens/home/components/art_collection.dart';
 
 import 'components/content_box.dart';
 import 'components/event_scrollview.dart';
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ContentBox(
               title: '아트 모음',
               contentPadding: 0,
-              child: SeasonOffArtCollection(),
+              child: ArtCollection(),
             ),
             ContentBox(
               title: '이벤트 소식',

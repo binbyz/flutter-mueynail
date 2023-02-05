@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: TodayArtCarousel(),
             ),
             ContentBox(
-              title: '아트 모음',
+              title: '아트 컬렉션',
               contentPadding: 0,
               child: ArtCollection(),
             ),

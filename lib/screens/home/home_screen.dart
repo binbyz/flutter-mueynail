@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ContentBox(
               title: '아트 모음',
+              contentPadding: 0,
               child: SeasonOffArtCollection(),
             ),
             ContentBox(

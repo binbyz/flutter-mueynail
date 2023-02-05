@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
+import 'package:mueynail/constants/value.dart';
 
 class ChatAppBar extends StatelessWidget with PreferredSizeWidget {
   const ChatAppBar({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class ChatAppBar extends StatelessWidget with PreferredSizeWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              Text('뮤이대표', style: navigationTextStyle.copyWith(fontSize: 18)),
+              Text('$ownerName대표', style: brandTextStyle.copyWith(fontSize: 18)),
             ],
           ),
         ),

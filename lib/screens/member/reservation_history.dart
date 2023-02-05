@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mueynail/app/components/common_app_bar.dart';
 
 class ReservationHistory extends StatelessWidget {
   const ReservationHistory({Key? key}) : super(key: key);
@@ -6,9 +7,7 @@ class ReservationHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('TestAppBar'),
-      ),
+      appBar: CommonAppBar(title: '예약 내역'),
       body: Container(
         child: Text('Hello, World'),
       ),

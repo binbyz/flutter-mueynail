@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:mueynail/app/entities/art/art_detail_model.dart';
 import 'package:mueynail/screens/art/art_detail_modal.dart';
+import 'package:mueynail/screens/art/art_list_screen.dart';
 
 final List<String> images = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
@@ -45,7 +46,11 @@ class ArtCollection extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => ArtListScreen()),
+              );
+            },
             child: const Text('전체 보기', textAlign: TextAlign.right),
           ),
         ),

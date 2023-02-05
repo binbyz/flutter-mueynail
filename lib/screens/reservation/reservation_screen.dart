@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/components/app_checkbox_list_title.dart';
+import 'package:mueynail/app/components/common_app_bar.dart';
 import 'package:mueynail/app/enum/art_group_enum.dart';
 import 'package:mueynail/app/enum/booking_step_enum.dart';
 import 'package:mueynail/constants/color.dart';
@@ -7,7 +8,6 @@ import 'package:mueynail/screens/reservation/components/booking_date.dart';
 import 'package:mueynail/screens/reservation/components/booking_time.dart';
 
 import '../home/components/content_box.dart';
-import '../home/home_app_bar.dart';
 import 'components/reservation_button.dart';
 
 const String iconUrl =
@@ -28,7 +28,7 @@ class _ReservationScreenState extends State<ReservationScreen> {
     // Future.delayed(Duration.zero, () => showBookingModal(context, currentStep));
 
     return Scaffold(
-      appBar: const HomeAppBar(),
+      appBar: const CommonAppBar(title: '예약하기'),
       body: Stack(
         children: [
           Container(

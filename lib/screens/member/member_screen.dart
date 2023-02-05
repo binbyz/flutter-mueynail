@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mueynail/app/components/common_app_bar.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
-import 'package:mueynail/screens/home/home_app_bar.dart';
 import 'package:mueynail/screens/member/reservation_history.dart';
 
 class MemberScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class MemberScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HomeAppBar(),
+      appBar: const CommonAppBar(title: '내 정보'),
       body: ListView(
         children: [
           userNamePart(),
@@ -126,7 +126,7 @@ class MemberScreen extends StatelessWidget {
     return TextButton(
       onPressed: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (conext) => ReservationHistory()),
+          MaterialPageRoute(builder: (_) => ReservationHistory()),
         );
       },
       child: Row(

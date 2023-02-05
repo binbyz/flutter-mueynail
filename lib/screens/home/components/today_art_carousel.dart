@@ -90,41 +90,41 @@ class _TodayArtCarouselState extends State<TodayArtCarousel> {
     return Container(
       width: 340,
       margin: const EdgeInsets.symmetric(horizontal: 10.0),
-      child: GestureDetector(
-        onTap: () {
-          showArtDetailModal(context, detail);
-        },
-        child: Column(
-          children: [
-            Center(
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: () {
+              showArtDetailModal(context, detail);
+            },
+            child: Center(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(detail.thumbnailUrl, fit: BoxFit.cover, width: 340),
               ),
             ),
-            SizedBox(
-              height: 100,
-              width: MediaQuery.of(context).size.width / 2,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    detail.name,
-                    maxLines: 1,
-                    style: titleTextStyle.copyWith(fontSize: 16),
-                  ),
-                  Text(
-                    detail.description,
-                    maxLines: 3,
-                    softWrap: true,
-                    textAlign: TextAlign.center,
-                    style: summaryTextStyle,
-                  ),
-                ],
-              ),
+          ),
+          SizedBox(
+            height: 100,
+            width: MediaQuery.of(context).size.width / 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  detail.name,
+                  maxLines: 1,
+                  style: titleTextStyle.copyWith(fontSize: 16),
+                ),
+                Text(
+                  detail.description,
+                  maxLines: 3,
+                  softWrap: true,
+                  textAlign: TextAlign.center,
+                  style: summaryTextStyle,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

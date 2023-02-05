@@ -16,8 +16,9 @@ const ArtDetailModel detailModel = ArtDetailModel(
   id: 1,
   name: '커리뽕뿌리',
   thumbnailUrl:
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80',
-  detailUrl: 'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80',
+      'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80',
+  detailUrl:
+      'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80',
   description: '세상에 하나밖에 없는\n단 한 사람만을 위한\n아트입니다.',
 );
 
@@ -26,18 +27,29 @@ class SeasonOffArtCollection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: InfiniteCarousel.builder(
-        itemCount: images.length,
-        itemExtent: 200,
-        loop: true,
-        anchor: 0.0,
-        velocityFactor: 0.2,
-        itemBuilder: (context, index, realIndex) {
-          return makeCarouselItem(context: context, index: index);
-        },
-      ),
+    return Column(
+      children: [
+        SizedBox(
+          height: 200,
+          child: InfiniteCarousel.builder(
+            itemCount: images.length,
+            itemExtent: 200,
+            loop: true,
+            anchor: 0.0,
+            velocityFactor: 0.2,
+            itemBuilder: (context, index, realIndex) {
+              return makeCarouselItem(context: context, index: index);
+            },
+          ),
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: TextButton(
+            onPressed: () {},
+            child: const Text('전체 보기', textAlign: TextAlign.right),
+          ),
+        ),
+      ],
     );
   }
 

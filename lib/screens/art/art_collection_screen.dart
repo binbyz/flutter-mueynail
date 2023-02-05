@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/components/common_app_bar.dart';
 
-class ArtListScreen extends StatelessWidget {
-  const ArtListScreen({Key? key}) : super(key: key);
+class ArtCollectionScreen extends StatelessWidget {
+  const ArtCollectionScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/entities/art/art_detail_model.dart';
 import 'package:mueynail/constants/style.dart';
-import 'package:mueynail/screens/art/art_detail_modal.dart';
+import 'package:mueynail/screens/art/components/art_detail_modal.dart';
 
 final List<ArtDetailModel> artList = [
   const ArtDetailModel(

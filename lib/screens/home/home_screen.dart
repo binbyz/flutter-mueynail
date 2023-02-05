@@ -24,19 +24,16 @@ class _HomeScreenState extends State<HomeScreen> {
             ContentBox(
               title: '이달의 아트',
               contentPadding: 0,
-              child: SizedBox(
-                height: 310,
-                child: TodayArtCarousel(),
-              ),
-            ),
-            ContentBox(
-              title: '이벤트 소식',
-              child: EventScrollview(),
+              child: TodayArtCarousel(),
             ),
             ContentBox(
               title: '아트 모음',
               contentPadding: 0,
               child: SeasonOffArtCollection(),
+            ),
+            ContentBox(
+              title: '이벤트 소식',
+              child: EventScrollview(),
             ),
             ContentBox(
               title: '따듯한 고객 후기',

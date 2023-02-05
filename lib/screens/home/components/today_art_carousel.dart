@@ -32,18 +32,21 @@ class _TodayArtCarouselState extends State<TodayArtCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-      itemCount: images.length,
-      options: CarouselOptions(
-        height: 340,
-        autoPlay: true,
-        autoPlayInterval: const Duration(seconds: 15),
-        aspectRatio: 5.0,
-        enlargeCenterPage: false,
+    return SizedBox(
+      height: 290,
+      child: CarouselSlider.builder(
+        itemCount: images.length,
+        options: CarouselOptions(
+          height: 340,
+          autoPlay: true,
+          autoPlayInterval: const Duration(seconds: 15),
+          aspectRatio: 5.0,
+          enlargeCenterPage: false,
+        ),
+        itemBuilder: (context, index, realIdx) {
+          return makeCarouselItem(index: index);
+        },
       ),
-      itemBuilder: (context, index, realIdx) {
-        return makeCarouselItem(index: index);
-      },
     );
   }
 
@@ -53,26 +56,14 @@ class _TodayArtCarouselState extends State<TodayArtCarousel> {
       margin: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: [
-          Stack(
-            children: [
-              Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.network(images[index], fit: BoxFit.cover, width: 340),
-                ),
-              ),
-              Positioned(
-                right: 10,
-                bottom: 5,
-                child: ElevatedButton(
-                  child: const Text('예약'),
-                  onPressed: () {},
-                ),
-              )
-            ],
+          Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.network(images[index], fit: BoxFit.cover, width: 340),
+            ),
           ),
           SizedBox(
-            height: 120,
+            height: 100,
             width: MediaQuery.of(context).size.width / 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

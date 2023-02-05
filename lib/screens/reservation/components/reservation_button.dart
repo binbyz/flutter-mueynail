@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/constants/color.dart';
+import 'package:mueynail/constants/style.dart';
 
 class ReservationButton extends StatelessWidget {
   const ReservationButton({Key? key}) : super(key: key);
@@ -31,11 +32,7 @@ class ReservationButton extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    side: const BorderSide(width: 1, color: primaryColor),
-                    backgroundColor: Colors.white,
-                    foregroundColor: primaryColor,
-                  ),
+                  style: elevatedSupplementaryStyle,
                   onPressed: () {},
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class ArtDetailModel {
   final int id;
   final String name;
-  final String url;
+  final String thumbnailUrl;
+  final String detailUrl;
   final Color? color;
   final String description;
   final String summary;
@@ -11,7 +12,8 @@ class ArtDetailModel {
   const ArtDetailModel({
     required this.id,
     required this.name,
-    required this.url,
+    required this.thumbnailUrl,
+    required this.detailUrl,
     required this.description,
     required this.summary,
     this.color,

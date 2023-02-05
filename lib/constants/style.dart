@@ -51,3 +51,11 @@ final negativeBoxDecoration = BoxDecoration(
 
 final negativeTextStyle = titleTextStyle.copyWith(color: Colors.black45);
 final positiveTextStyle = titleTextStyle;
+
+/// <ElevatedButton 부가 기능 스타일>
+/// 하얀색 배경의 `primaryColor`로 텍스트 생상이 입혀졌다.
+final ButtonStyle elevatedSupplementaryStyle = ElevatedButton.styleFrom(
+  side: const BorderSide(width: 1, color: primaryColor),
+  backgroundColor: Colors.white,
+  foregroundColor: primaryColor,
+);

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mueynail/app/components/app_checkbox_list_title.dart';
 import 'package:mueynail/app/components/common_app_bar.dart';
 import 'package:mueynail/app/enum/art_group_enum.dart';
-import 'package:mueynail/app/enum/booking_step_enum.dart';
+import 'package:mueynail/app/enum/reservation_step_enum.dart';
 import 'package:mueynail/constants/color.dart';
-import 'package:mueynail/screens/reservation/components/booking_date.dart';
-import 'package:mueynail/screens/reservation/components/booking_time.dart';
+import 'package:mueynail/screens/reservation/components/reservation_date.dart';
+import 'package:mueynail/screens/reservation/components/reservation_time.dart';
 
 import '../home/components/content_box.dart';
 import 'components/reservation_button.dart';
@@ -21,7 +21,7 @@ class ReservationScreen extends StatefulWidget {
 }
 
 class _ReservationScreenState extends State<ReservationScreen> {
-  BookingStep currentStep = BookingStep.depositConfirmed;
+  ReservationStep currentStep = ReservationStep.depositConfirmed;
 
   @override
   Widget build(BuildContext context) {
@@ -62,14 +62,14 @@ class _ReservationScreenState extends State<ReservationScreen> {
           padding: const EdgeInsets.symmetric(vertical: 5),
           child: Row(
             children: [
-              BookingDate(dateTime: DateTime.now(), checked: false),
-              BookingDate(dateTime: DateTime.now(), checked: true),
-              BookingDate(dateTime: DateTime.now(), checked: false),
-              BookingDate(dateTime: DateTime.now(), checked: false),
-              BookingDate(dateTime: DateTime.now(), checked: false),
-              BookingDate(dateTime: DateTime.now(), checked: false),
-              BookingDate(dateTime: DateTime.now(), checked: false),
-              BookingDate(dateTime: DateTime.now(), checked: false),
+              ReservationDate(dateTime: DateTime.now(), checked: false),
+              ReservationDate(dateTime: DateTime.now(), checked: true),
+              ReservationDate(dateTime: DateTime.now(), checked: false),
+              ReservationDate(dateTime: DateTime.now(), checked: false),
+              ReservationDate(dateTime: DateTime.now(), checked: false),
+              ReservationDate(dateTime: DateTime.now(), checked: false),
+              ReservationDate(dateTime: DateTime.now(), checked: false),
+              ReservationDate(dateTime: DateTime.now(), checked: false),
             ],
           ),
         ),
@@ -87,15 +87,15 @@ class _ReservationScreenState extends State<ReservationScreen> {
         runSpacing: 10,
         alignment: WrapAlignment.spaceBetween,
         children: [
-          BookingTime(dateTime: DateTime.now(), checked: false),
-          BookingTime(dateTime: DateTime.now(), checked: true),
-          BookingTime(dateTime: DateTime.now(), checked: false),
-          BookingTime(dateTime: DateTime.now(), checked: false),
-          BookingTime(dateTime: DateTime.now(), checked: false),
-          BookingTime(dateTime: DateTime.now(), checked: false),
-          BookingTime(dateTime: DateTime.now(), checked: false),
-          BookingTime(dateTime: DateTime.now(), checked: false),
-          BookingTime(dateTime: DateTime.now(), checked: false),
+          ReservationTime(dateTime: DateTime.now(), checked: false),
+          ReservationTime(dateTime: DateTime.now(), checked: true),
+          ReservationTime(dateTime: DateTime.now(), checked: false),
+          ReservationTime(dateTime: DateTime.now(), checked: false),
+          ReservationTime(dateTime: DateTime.now(), checked: false),
+          ReservationTime(dateTime: DateTime.now(), checked: false),
+          ReservationTime(dateTime: DateTime.now(), checked: false),
+          ReservationTime(dateTime: DateTime.now(), checked: false),
+          ReservationTime(dateTime: DateTime.now(), checked: false),
         ],
       ),
     );

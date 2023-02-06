@@ -69,7 +69,6 @@ class _TodayArtCarouselState extends State<TodayArtCarousel> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 290,
       child: CarouselSlider.builder(
         itemCount: artList.length,
         options: CarouselOptions(
@@ -89,7 +88,7 @@ class _TodayArtCarouselState extends State<TodayArtCarousel> {
   Widget makeCarouselItem(BuildContext context, ArtDetailModel detail) {
     return Container(
       width: 340,
-      margin: const EdgeInsets.symmetric(horizontal: 10.0),
+      margin: const EdgeInsets.symmetric(horizontal: 5),
       child: Column(
         children: [
           GestureDetector(
@@ -112,14 +111,14 @@ class _TodayArtCarouselState extends State<TodayArtCarousel> {
                 Text(
                   detail.name,
                   maxLines: 1,
-                  style: titleTextStyle.copyWith(fontSize: 16),
+                  style: titleTextStyle.copyWith(fontSize: 18),
                 ),
                 Text(
                   detail.description,
                   maxLines: 3,
                   softWrap: true,
                   textAlign: TextAlign.center,
-                  style: summaryTextStyle,
+                  style: summaryTextStyle.copyWith(fontSize: 14),
                 ),
               ],
             ),

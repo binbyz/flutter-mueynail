@@ -93,13 +93,56 @@ class MemberScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _menuPartTitle(valueBrand),
-        _menuPartButton(context: context, icon: Icons.history, label: '예약 내역'),
-        _menuPartButton(context: context, icon: Icons.article_outlined, label: '후기 작성', description: '1000 포인트 지급'),
-        _menuPartButton(context: context, icon: Icons.favorite_outline, label: '관심 아트'),
+        _menuPartButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+            );
+          },
+          icon: Icons.history,
+          label: '예약 내역',
+        ),
+        _menuPartButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+            );
+          },
+          icon: Icons.article_outlined,
+          label: '후기 작성',
+          description: '1000 포인트 지급',
+        ),
+        _menuPartButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+            );
+          },
+          icon: Icons.favorite_outline,
+          label: '관심 아트',
+        ),
         const SizedBox(height: 15),
         _menuPartTitle('기타'),
-        _menuPartButton(context: context, icon: Icons.person_search_outlined, label: '친구 초대', description: '3000 포인트 지급'),
-        _menuPartButton(context: context, icon: Icons.exit_to_app_outlined, label: '회원 탈퇴', blindItem: true),
+        _menuPartButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+            );
+          },
+          icon: Icons.person_search_outlined,
+          label: '친구 초대',
+          description: '3000 포인트 지급',
+        ),
+        _menuPartButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+            );
+          },
+          icon: Icons.exit_to_app_outlined,
+          label: '회원 탈퇴',
+          blindItem: true,
+        ),
       ],
     );
   }
@@ -109,7 +152,7 @@ class MemberScreen extends StatelessWidget {
   }
 
   Widget _menuPartButton({
-    required BuildContext context,
+    required VoidCallback onPressed,
     required IconData icon,
     required String label,
     String description = '',
@@ -124,11 +167,7 @@ class MemberScreen extends StatelessWidget {
     );
 
     return TextButton(
-      onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => ReservationHistory()),
-        );
-      },
+      onPressed: onPressed,
       child: Row(
         children: [
           Icon(icon, size: 16, color: color),

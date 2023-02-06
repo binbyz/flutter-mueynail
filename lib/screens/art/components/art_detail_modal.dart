@@ -28,7 +28,7 @@ class ArtDetailModal extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(left: 0, bottom: 0, child: bottomReservationOrLike(context)),
+          Positioned(left: 0, bottom: 30, child: bottomReservationOrLike(context)),
         ],
       ),
     );
@@ -78,7 +78,7 @@ class ArtDetailModal extends StatelessWidget {
           ElevatedButton(
             onPressed: () {},
             style: elevatedSupplementaryStyle,
-            child: Icon(Icons.favorite),
+            child: const Icon(Icons.favorite),
           ),
         ],
       ),

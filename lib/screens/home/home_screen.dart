@@ -20,24 +20,24 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: const HomeAppBar(),
       body: SingleChildScrollView(
         child: Column(
-          children: const [
-            ContentBox(
+          children: [
+            const ContentBox(
               title: '이달의 아트',
               contentPadding: 0,
               child: TodayArtCarousel(),
             ),
-            ContentBox(
+            const ContentBox(
               title: '아트 컬렉션',
               contentPadding: 0,
               child: ArtCollection(),
             ),
-            ContentBox(
+            const ContentBox(
               title: '이벤트 소식',
               child: EventScrollview(),
             ),
             ContentBox(
               title: '따듯한 고객 후기',
-              child: EventScrollview(),
+              child: Container(),
             ),
           ],
         ),

@@ -75,7 +75,7 @@ class ArtCollection extends StatelessWidget {
                 MaterialPageRoute(builder: (_) => ArtCollectionScreen()),
               );
             },
-            child: const Text('전체 보기', textAlign: TextAlign.right),
+            child: const Icon(Icons.more_horiz_rounded),
           ),
         ),
       ],

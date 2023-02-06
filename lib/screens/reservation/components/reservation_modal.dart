@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/enum/booking_step_enum.dart';
+import 'package:mueynail/app/enum/reservation_step_enum.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
 
-void showBookingModal(BuildContext context, BookingStep currentStep) {
+void showReservationModal(BuildContext context, ReservationStep currentStep) {
   showDialog(
     context: context,
     barrierDismissible: false,
@@ -27,10 +27,10 @@ void showBookingModal(BuildContext context, BookingStep currentStep) {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  ..._bookingStep(currentStep),
+                  ..._reservationStep(currentStep),
                 ],
               ),
-              ..._bookingDescription(currentStep),
+              ..._reservationDescription(currentStep),
             ],
           ),
         ),
@@ -42,11 +42,11 @@ void showBookingModal(BuildContext context, BookingStep currentStep) {
   );
 }
 
-List<Widget> _bookingStep(BookingStep currentStep) {
+List<Widget> _reservationStep(ReservationStep currentStep) {
   bool progressing = true;
   final activeTextStyle = summaryTextStyle.copyWith(color: primaryColor);
 
-  return BookingStep.values.map((step) {
+  return ReservationStep.values.map((step) {
     var statusIcon = progressing
         ? const Icon(Icons.check_circle, size: 30, color: primaryColor)
         : const Icon(Icons.check_circle_outline, size: 30, color: primaryColorOpacity);
@@ -65,12 +65,12 @@ List<Widget> _bookingStep(BookingStep currentStep) {
   }).toList();
 }
 
-List<Widget> _bookingDescription(BookingStep currentStep) {
+List<Widget> _reservationDescription(ReservationStep currentStep) {
   List<Widget> descriptions = [
     Text(currentStep.description, style: normalTextStyle),
   ];
 
-  if (currentStep == BookingStep.applyChecked) {
+  if (currentStep == ReservationStep.applyChecked) {
     descriptions.insert(0, const SizedBox(height: 15));
     descriptions.addAll([
       const SizedBox(height: 10),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/constants/style.dart';
 
-class BookingDate extends StatelessWidget {
+class ReservationDate extends StatelessWidget {
   final DateTime dateTime;
   final bool checked;
 
-  const BookingDate({Key? key, required this.dateTime, required this.checked}) : super(key: key);
+  const ReservationDate({Key? key, required this.dateTime, required this.checked}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
 import 'package:mueynail/screens/member/reservation_history_screen.dart';
+import 'package:mueynail/screens/member/review_screen.dart';
 
 class MemberScreen extends StatelessWidget {
   const MemberScreen({Key? key}) : super(key: key);
@@ -105,12 +106,12 @@ class MemberScreen extends StatelessWidget {
         _menuPartButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReservationHistoryScreen()),
+              MaterialPageRoute(builder: (_) => const ReviewScreen()),
             );
           },
           icon: Icons.article_outlined,
           label: '후기 작성',
-          description: '1000 포인트 지급',
+          description: '1000 포인트 획득 기회!',
         ),
         _menuPartButton(
           onPressed: () {

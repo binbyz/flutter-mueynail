@@ -1,4 +1,4 @@
-import 'package:mueynail/app/enum/message_type_enum.dart';
+import 'package:mueynail/app/enum/message_type.dart';
 
 class MessageModel {
   final String content;

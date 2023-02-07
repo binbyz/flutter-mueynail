@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/entities/chat/message_model.dart';
-import 'package:mueynail/app/enum/message_type_enum.dart';
+import 'package:mueynail/app/enum/message_type.dart';
 
 import 'chat_app_bar.dart';
 import 'components/bubble.dart';

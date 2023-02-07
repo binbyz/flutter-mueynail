@@ -3,10 +3,10 @@ import 'package:mueynail/app/entities/art/art_detail_model.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/screens/image_viewer.dart';
 
-class ArtDetailModal extends StatelessWidget {
+class ArtDetailLayer extends StatelessWidget {
   final ArtDetailModel detail;
 
-  const ArtDetailModal({Key? key, required this.detail}) : super(key: key);
+  const ArtDetailLayer({Key? key, required this.detail}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +69,10 @@ class ArtDetailModal extends StatelessWidget {
   /// 예약하기 버튼 및 좋아요 버튼
   Widget bottomReservationOrLike(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: 40,
       width: MediaQuery.of(context).size.width - 20,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(child: ElevatedButton(onPressed: () {}, child: const Text('예약하기'))),
           const SizedBox(width: 5),
@@ -95,7 +96,7 @@ void showArtDetailModal(BuildContext context, ArtDetailModel detailModel) {
       borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
     ),
     builder: (builder) {
-      return ArtDetailModal(detail: detailModel);
+      return ArtDetailLayer(detail: detailModel);
     },
   );
 }

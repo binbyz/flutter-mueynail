@@ -3,12 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/components/common_app_bar.dart';
 import 'package:mueynail/app/entities/art/art_detail_model.dart';
-import 'package:mueynail/app/entities/reservation/reservation_history_model.dart';
+import 'package:mueynail/app/entities/review/review_model.dart';
 import 'package:mueynail/app/enum/art_status.dart';
-import 'package:mueynail/app/enum/reservation_step.dart';
+import 'package:mueynail/app/enum/review_status.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/screens/art/components/art_detail_layer.dart';
+import 'package:mueynail/screens/member/components/review_layer.dart';
 
 final List<ArtDetailModel> artList = [
   const ArtDetailModel(
@@ -73,75 +74,111 @@ final List<ArtDetailModel> artList = [
   ),
 ];
 
-final List<ReservationHistoryModel> histories = [
-  ReservationHistoryModel(
-      id: 1,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
-  ReservationHistoryModel(
-      id: 2,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
-  ReservationHistoryModel(
-      id: 3,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
-  ReservationHistoryModel(
-      id: 4,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
-  ReservationHistoryModel(
-      id: 5,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
-  ReservationHistoryModel(
-      id: 6,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
-  ReservationHistoryModel(
-      id: 7,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
-  ReservationHistoryModel(
-      id: 8,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
-  ReservationHistoryModel(
-      id: 9,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
-  ReservationHistoryModel(
-      id: 10,
-      status: ReservationStep.end,
-      createdAt: DateTime.now(),
-      artDetail: artList[Random().nextInt(artList.length)]),
+final List<ReviewModel> reviewList = [
+  ReviewModel(
+    id: 1,
+    status: ReviewStatus.pending,
+    memberId: 1,
+    reviewedAt: null,
+    content: null,
+    point: null,
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+    artDetail: artList[Random().nextInt(artList.length)],
+  ),
+  ReviewModel(
+    id: 1,
+    status: ReviewStatus.reviewed,
+    memberId: 1,
+    content: "꼼꼼한 시술 감사합니다!",
+    point: 1,
+    reviewedAt: DateTime.now(),
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+    artDetail: artList[Random().nextInt(artList.length)],
+  ),
+  ReviewModel(
+    id: 1,
+    status: ReviewStatus.pending,
+    memberId: 1,
+    content: null,
+    point: null,
+    reviewedAt: null,
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+    artDetail: artList[Random().nextInt(artList.length)],
+  ),
+  ReviewModel(
+    id: 1,
+    status: ReviewStatus.pending,
+    memberId: 1,
+    content: null,
+    point: null,
+    reviewedAt: null,
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+    artDetail: artList[Random().nextInt(artList.length)],
+  ),
+  ReviewModel(
+    id: 1,
+    status: ReviewStatus.pending,
+    memberId: 1,
+    content: null,
+    point: null,
+    reviewedAt: null,
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+    artDetail: artList[Random().nextInt(artList.length)],
+  ),
+  ReviewModel(
+    id: 1,
+    status: ReviewStatus.pending,
+    memberId: 1,
+    content: null,
+    point: null,
+    reviewedAt: null,
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+    artDetail: artList[Random().nextInt(artList.length)],
+  ),
+  ReviewModel(
+    id: 1,
+    status: ReviewStatus.pending,
+    memberId: 1,
+    content: null,
+    point: null,
+    reviewedAt: null,
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+    artDetail: artList[Random().nextInt(artList.length)],
+  ),
+  ReviewModel(
+    id: 1,
+    status: ReviewStatus.reviewed,
+    memberId: 1,
+    content: "",
+    point: 1,
+    reviewedAt: DateTime.now(),
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+    artDetail: artList[Random().nextInt(artList.length)],
+  ),
 ];
 
-class ReservationHistoryScreen extends StatelessWidget {
-  const ReservationHistoryScreen({Key? key}) : super(key: key);
+class ReviewScreen extends StatelessWidget {
+  const ReviewScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
-
     return Scaffold(
-      appBar: const CommonAppBar(title: '예약 내역'),
+      appBar: const CommonAppBar(title: '후기 작성'),
       body: ListView.builder(
         scrollDirection: Axis.vertical,
-        itemCount: histories.length,
+        itemCount: reviewList.length,
         itemBuilder: (BuildContext context, int index) {
-          final item = histories[index];
+          final review = reviewList[index];
 
-          int dayAgo = item.createdAt.difference(now).inDays;
+          int dayAgo = review.createdAt.difference(DateTime.now()).inDays;
 
           return Container(
             padding: const EdgeInsets.all(10),
@@ -159,23 +196,34 @@ class ReservationHistoryScreen extends StatelessWidget {
                 const SizedBox(width: 15),
                 GestureDetector(
                   onTap: () {
-                    showArtDetailModal(context, item.artDetail);
+                    showArtDetailModal(context, review.artDetail);
                   },
                   child: Row(
                     children: [
                       CircleAvatar(
                         backgroundColor: primaryColor,
                         radius: 26,
-                        child: CircleAvatar(backgroundImage: NetworkImage(item.artDetail.thumbnailUrl), radius: 25),
+                        child: CircleAvatar(backgroundImage: NetworkImage(review.artDetail.thumbnailUrl), radius: 25),
                       ),
                       const SizedBox(width: 10),
                       SizedBox(
                         width: 160,
-                        child: Text(
-                          item.artDetail.name,
-                          overflow: TextOverflow.ellipsis,
-                          style: titleTextStyle.copyWith(fontSize: 16),
-                          maxLines: 1,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              review.artDetail.name,
+                              overflow: TextOverflow.ellipsis,
+                              style: titleTextStyle.copyWith(fontSize: 16),
+                              maxLines: 1,
+                            ),
+                            Text(
+                              review.content ?? '',
+                              overflow: TextOverflow.ellipsis,
+                              style: summaryTextStyle,
+                              maxLines: 1,
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -184,13 +232,47 @@ class ReservationHistoryScreen extends StatelessWidget {
                 Expanded(
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: ElevatedButton(onPressed: () {}, child: const Text('재예약')),
+                    child: buildReviewButton(context, review),
                   ),
                 ),
               ],
             ),
           );
         },
+      ),
+    );
+  }
+
+  ElevatedButton buildReviewButton(BuildContext context, ReviewModel review) {
+    final text = review.status == ReviewStatus.reviewed ? '리뷰수정' : '리뷰작성';
+
+    final style = review.status == ReviewStatus.reviewed
+        ? ElevatedButton.styleFrom(
+            backgroundColor: Colors.black54,
+          )
+        : ElevatedButton.styleFrom(
+            backgroundColor: primaryColor,
+          );
+
+    return ElevatedButton(
+      onPressed: () {
+        buildReviewModal(context, review);
+      },
+      style: style,
+      child: Text(text),
+    );
+  }
+
+  void buildReviewModal(BuildContext context, ReviewModel review) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+      ),
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+        child: ReviewLayer(review: review),
       ),
     );
   }

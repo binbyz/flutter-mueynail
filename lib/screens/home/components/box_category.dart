@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/enum/art_group_enum.dart';
+import 'package:mueynail/app/enum/art_group.dart';
 import 'package:mueynail/constants/color.dart';
 
 class BoxCategory extends StatelessWidget {

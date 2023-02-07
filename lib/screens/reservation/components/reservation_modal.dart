@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/enum/reservation_step_enum.dart';
+import 'package:mueynail/app/enum/reservation_step.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';

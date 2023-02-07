@@ -1,5 +1,5 @@
 import 'package:mueynail/app/entities/art/art_detail_model.dart';
-import 'package:mueynail/app/enum/reservation_step_enum.dart';
+import 'package:mueynail/app/enum/reservation_step.dart';
 
 class ReservationHistoryModel {
   final int id;

@@ -1,0 +1,4 @@
+enum ReviewStatus {
+  pending,
+  reviewed,
+}

@@ -110,8 +110,8 @@ final List<ReservationHistoryModel> histories = [
       artDetail: artList[Random().nextInt(artList.length)]),
 ];
 
-class ReservationHistory extends StatelessWidget {
-  const ReservationHistory({Key? key}) : super(key: key);
+class ReservationHistoryScreen extends StatelessWidget {
+  const ReservationHistoryScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

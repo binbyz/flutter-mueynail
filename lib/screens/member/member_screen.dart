@@ -3,7 +3,7 @@ import 'package:mueynail/app/components/common_app_bar.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
-import 'package:mueynail/screens/member/reservation_history.dart';
+import 'package:mueynail/screens/member/reservation_history_screen.dart';
 
 class MemberScreen extends StatelessWidget {
   const MemberScreen({Key? key}) : super(key: key);
@@ -96,7 +96,7 @@ class MemberScreen extends StatelessWidget {
         _menuPartButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+              MaterialPageRoute(builder: (_) => const ReservationHistoryScreen()),
             );
           },
           icon: Icons.history,
@@ -105,7 +105,7 @@ class MemberScreen extends StatelessWidget {
         _menuPartButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+              MaterialPageRoute(builder: (_) => const ReservationHistoryScreen()),
             );
           },
           icon: Icons.article_outlined,
@@ -115,7 +115,7 @@ class MemberScreen extends StatelessWidget {
         _menuPartButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+              MaterialPageRoute(builder: (_) => const ReservationHistoryScreen()),
             );
           },
           icon: Icons.favorite_outline,
@@ -126,7 +126,7 @@ class MemberScreen extends StatelessWidget {
         _menuPartButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+              MaterialPageRoute(builder: (_) => const ReservationHistoryScreen()),
             );
           },
           icon: Icons.person_search_outlined,
@@ -136,12 +136,12 @@ class MemberScreen extends StatelessWidget {
         _menuPartButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReservationHistory()),
+              MaterialPageRoute(builder: (_) => const ReservationHistoryScreen()),
             );
           },
           icon: Icons.exit_to_app_outlined,
           label: '회원 탈퇴',
-          blindItem: true,
+          smallText: true,
         ),
       ],
     );
@@ -156,14 +156,14 @@ class MemberScreen extends StatelessWidget {
     required IconData icon,
     required String label,
     String description = '',
-    bool blindItem = false,
+    bool smallText = false,
   }) {
-    final color = (blindItem == false) ? primaryColor : Colors.black54;
+    final color = (smallText == false) ? primaryColor : Colors.black54;
 
     final textStyle = TextStyle(
       color: color,
-      fontSize: (blindItem == false) ? 16 : 12,
-      fontWeight: (blindItem == false) ? FontWeight.w500 : FontWeight.w200,
+      fontSize: (smallText == false) ? 18 : 12,
+      fontWeight: (smallText == false) ? FontWeight.w500 : FontWeight.w200,
     );
 
     return TextButton(

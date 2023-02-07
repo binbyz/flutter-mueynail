@@ -94,7 +94,7 @@ class ArtCollection extends StatelessWidget {
         showArtDetailModal(context, detailModel);
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 2.5),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Stack(
           children: [
             ClipRRect(

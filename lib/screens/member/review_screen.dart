@@ -189,11 +189,11 @@ class ReviewScreen extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const SizedBox(width: 15),
+                const SizedBox(width: 10),
                 const Icon(Icons.calendar_today_outlined, size: 16, color: Colors.black45),
-                const SizedBox(width: 15),
+                const SizedBox(width: 10),
                 Text(dayAgo == 0 ? '오늘' : '$dayAgo일 전', style: summaryTextStyle),
-                const SizedBox(width: 15),
+                const SizedBox(width: 10),
                 GestureDetector(
                   onTap: () {
                     showArtDetailModal(context, review.artDetail);
@@ -207,7 +207,7 @@ class ReviewScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 10),
                       SizedBox(
-                        width: 160,
+                        width: 140,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -259,7 +259,7 @@ class ReviewScreen extends StatelessWidget {
         buildReviewModal(context, review);
       },
       style: style,
-      child: Text(text),
+      child: Text(text, overflow: TextOverflow.ellipsis),
     );
   }
 

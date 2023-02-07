@@ -37,9 +37,9 @@ class _ReviewLayerState extends State<ReviewLayer> {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
                   children: [
-                    Expanded(child: buildIconButton(Icons.sentiment_satisfied_alt_rounded)),
-                    Expanded(child: buildIconButton(Icons.sentiment_neutral_rounded)),
                     Expanded(child: buildIconButton(Icons.sentiment_dissatisfied_rounded)),
+                    Expanded(child: buildIconButton(Icons.sentiment_neutral_rounded)),
+                    Expanded(child: buildIconButton(Icons.sentiment_satisfied_alt_rounded)),
                   ],
                 ),
               ),
@@ -73,12 +73,11 @@ class _ReviewLayerState extends State<ReviewLayer> {
 
   Widget buildIconButton(IconData icon) {
     return SizedBox(
-      width: 100,
-      height: 100,
+      width: 80,
+      height: 80,
       child: IconButton(
         onPressed: () {},
-        splashRadius: 80,
-        icon: Icon(icon, size: 72),
+        icon: Icon(icon, size: 42),
         tooltip: 'test',
       ),
     );

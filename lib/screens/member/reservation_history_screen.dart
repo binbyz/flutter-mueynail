@@ -152,11 +152,11 @@ class ReservationHistoryScreen extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const SizedBox(width: 15),
+                const SizedBox(width: 10),
                 const Icon(Icons.calendar_today_outlined, size: 16, color: Colors.black45),
-                const SizedBox(width: 15),
+                const SizedBox(width: 10),
                 Text(dayAgo == 0 ? '오늘' : '$dayAgo일 전', style: summaryTextStyle),
-                const SizedBox(width: 15),
+                const SizedBox(width: 10),
                 GestureDetector(
                   onTap: () {
                     showArtDetailModal(context, item.artDetail);
@@ -170,7 +170,7 @@ class ReservationHistoryScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 10),
                       SizedBox(
-                        width: 160,
+                        width: 140,
                         child: Text(
                           item.artDetail.name,
                           overflow: TextOverflow.ellipsis,
@@ -184,7 +184,10 @@ class ReservationHistoryScreen extends StatelessWidget {
                 Expanded(
                   child: Align(
                     alignment: Alignment.centerRight,
-                    child: ElevatedButton(onPressed: () {}, child: const Text('재예약')),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('재예약', overflow: TextOverflow.ellipsis),
+                    ),
                   ),
                 ),
               ],

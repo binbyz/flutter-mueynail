@@ -3,10 +3,10 @@ import 'package:mueynail/app/entities/chat/message_model.dart';
 import 'package:mueynail/app/enum/message_type.dart';
 import 'package:mueynail/constants/color.dart';
 
-class Bubble extends StatelessWidget {
+class BubbleText extends StatelessWidget {
   final MessageModel message;
 
-  const Bubble({required this.message, Key? key}) : super(key: key);
+  const BubbleText({required this.message, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

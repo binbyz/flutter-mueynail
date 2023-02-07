@@ -3,7 +3,7 @@ import 'package:mueynail/app/entities/chat/message_model.dart';
 import 'package:mueynail/app/enum/message_type.dart';
 
 import 'chat_app_bar.dart';
-import 'components/bubble.dart';
+import 'components/bubble_text.dart';
 import 'components/chat_input.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -66,7 +66,7 @@ class _ChatScreenState extends State<ChatScreen> {
             shrinkWrap: true,
             padding: const EdgeInsets.only(top: 10, bottom: 60),
             itemBuilder: (context, index) {
-              return Bubble(message: _messages[index]);
+              return BubbleText(message: _messages[index]);
             },
           ),
           const Align(

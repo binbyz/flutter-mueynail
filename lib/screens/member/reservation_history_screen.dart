@@ -55,6 +55,15 @@ final List<ArtDetailModel> artList = [
         'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80',
     description: '세상에 하나밖에 없는\n단 한 사람만을 위한\n아트입니다.',
   ),
+  const ArtDetailModel(
+    id: 6,
+    name: '긴 이름의 아트 이름은 어떻게 표시될까요',
+    thumbnailUrl:
+        'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
+    detailUrl:
+        'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80',
+    description: '세상에 하나밖에 없는\n단 한 사람만을 위한\n아트입니다.',
+  ),
 ];
 
 final List<ReservationHistoryModel> histories = [
@@ -153,7 +162,15 @@ class ReservationHistoryScreen extends StatelessWidget {
                         child: CircleAvatar(backgroundImage: NetworkImage(item.artDetail.thumbnailUrl), radius: 25),
                       ),
                       const SizedBox(width: 10),
-                      Text(item.artDetail.name, style: titleTextStyle.copyWith(fontSize: 16)),
+                      SizedBox(
+                        width: 160,
+                        child: Text(
+                          item.artDetail.name,
+                          overflow: TextOverflow.ellipsis,
+                          style: titleTextStyle.copyWith(fontSize: 16),
+                          maxLines: 1,
+                        ),
+                      ),
                     ],
                   ),
                 ),

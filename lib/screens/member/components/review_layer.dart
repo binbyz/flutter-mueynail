@@ -34,12 +34,12 @@ class _ReviewLayerState extends State<ReviewLayer> {
                 child: Text(widget.review.artDetail.name, style: titleTextStyle, overflow: TextOverflow.ellipsis),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Row(
                   children: [
-                    Expanded(child: buildIconButton(Icons.sentiment_dissatisfied_rounded)),
-                    Expanded(child: buildIconButton(Icons.sentiment_neutral_rounded)),
-                    Expanded(child: buildIconButton(Icons.sentiment_satisfied_alt_rounded)),
+                    Expanded(child: buildIconButton(Icons.sentiment_dissatisfied_rounded, 0)),
+                    Expanded(child: buildIconButton(Icons.sentiment_neutral_rounded, 1)),
+                    Expanded(child: buildIconButton(Icons.sentiment_satisfied_alt_rounded, 2)),
                   ],
                 ),
               ),
@@ -48,6 +48,18 @@ class _ReviewLayerState extends State<ReviewLayer> {
           ),
           Positioned(left: 0, bottom: 30, child: buildBottomSaveButton(context)),
         ],
+      ),
+    );
+  }
+
+  Widget buildIconButton(IconData icon, int point) {
+    return SizedBox(
+      width: 80,
+      height: 80,
+      child: IconButton(
+        onPressed: () {},
+        icon: Icon(icon, size: 60, color: point == 2 ? primaryColor : Colors.black26),
+        tooltip: 'test',
       ),
     );
   }
@@ -67,18 +79,6 @@ class _ReviewLayerState extends State<ReviewLayer> {
           borderSide: BorderSide(width: 1, color: primaryColor),
         ),
         hintText: '(선택 입력)',
-      ),
-    );
-  }
-
-  Widget buildIconButton(IconData icon) {
-    return SizedBox(
-      width: 80,
-      height: 80,
-      child: IconButton(
-        onPressed: () {},
-        icon: Icon(icon, size: 42),
-        tooltip: 'test',
       ),
     );
   }

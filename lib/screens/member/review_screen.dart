@@ -8,7 +8,7 @@ import 'package:mueynail/app/enum/art_status.dart';
 import 'package:mueynail/app/enum/review_status.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
-import 'package:mueynail/screens/art/components/art_detail_layer.dart';
+import 'package:mueynail/screens/home/components/art_detail_layer.dart';
 import 'package:mueynail/screens/member/components/review_layer.dart';
 
 final List<ArtDetailModel> artList = [
@@ -196,7 +196,7 @@ class ReviewScreen extends StatelessWidget {
                 const SizedBox(width: 10),
                 GestureDetector(
                   onTap: () {
-                    showArtDetailModal(context, review.artDetail);
+                    showArtDetailLayer(context, review.artDetail);
                   },
                   child: Row(
                     children: [

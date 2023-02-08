@@ -88,7 +88,7 @@ class ArtDetailLayer extends StatelessWidget {
 }
 
 /// 아트 상세보기 바텀시트 호출 함수
-void showArtDetailModal(BuildContext context, ArtDetailModel detailModel) {
+void showArtDetailLayer(BuildContext context, ArtDetailModel detailModel) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,

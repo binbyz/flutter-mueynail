@@ -53,14 +53,14 @@ final List<ArtDetailModel> artList = [
   ),
 ];
 
-class TodayArtCarousel extends StatefulWidget {
-  const TodayArtCarousel({Key? key}) : super(key: key);
+class TheMonthArtCarousel extends StatefulWidget {
+  const TheMonthArtCarousel({Key? key}) : super(key: key);
 
   @override
-  State<TodayArtCarousel> createState() => _TodayArtCarouselState();
+  State<TheMonthArtCarousel> createState() => _TheMonthArtCarouselState();
 }
 
-class _TodayArtCarouselState extends State<TodayArtCarousel> {
+class _TheMonthArtCarouselState extends State<TheMonthArtCarousel> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {

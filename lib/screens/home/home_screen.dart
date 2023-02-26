@@ -3,7 +3,7 @@ import 'package:mueynail/screens/home/components/art_collection.dart';
 
 import 'components/content_box.dart';
 import 'components/event_scrollview.dart';
-import 'components/today_art_carousel.dart';
+import 'components/the_month_art_carousel.dart';
 import 'home_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const ContentBox(
               title: '이달의 아트',
               contentPadding: 0,
-              child: TodayArtCarousel(),
+              child: TheMonthArtCarousel(),
             ),
             const ContentBox(
               title: '아트 컬렉션',

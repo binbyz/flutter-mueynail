@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:logger/logger.dart';
+import 'package:mueynail/app/models/shop/art.dart';
 
 final logger = Logger();
 
@@ -11,16 +12,19 @@ final dio = Dio(BaseOptions(
     }
 ));
 
-Future<List<dynamic>> fetchArtMonthPick() async {
+Future<List<dynamic>> _fetchArtMonthPick() async {
   try {
     final response = await dio.get('/api/shop/v1/art/month-pick');
+    final List<dynamic> data = response.data['data'];
 
-    // print(response.data['data']);
-    logger.v(response.data['data']);
-
-    return response.data['data'];
+    return data;
   } catch (e) {
     logger.d(e);
     return [];
   }
+}
+
+Future<List<Art>> fetchArtMonthPick() async {
+  final json = await _fetchArtMonthPick();
+  return json.map((item) => Art.fromJson(item)).toList();
 }

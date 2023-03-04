@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/entities/art/art_detail_model.dart';
+import 'package:mueynail/app/models/shop/art.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/screens/image_viewer.dart';
 
 class ArtDetailLayer extends StatelessWidget {
-  final ArtDetailModel detail;
+  final Art art;
 
-  const ArtDetailLayer({Key? key, required this.detail}) : super(key: key);
+  const ArtDetailLayer({Key? key, required this.art}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,9 @@ class ArtDetailLayer extends StatelessWidget {
                 children: [
                   imageEnlargePreview(context),
                   const SizedBox(height: 20),
-                  Text(detail.name, style: titleTextStyle),
+                  Text(art.name, style: titleTextStyle),
                   const SizedBox(height: 20),
-                  Text(detail.description, style: summaryTextStyle, textAlign: TextAlign.center),
+                  Text(art.description, style: summaryTextStyle, textAlign: TextAlign.center),
                 ],
               ),
             ),
@@ -39,7 +39,7 @@ class ArtDetailLayer extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => ImageViewer(imageUrl: detail.thumbnailUrl)),
+          MaterialPageRoute(builder: (_) => ImageViewer(imageUrl: art.files['main_image']['image_url'])),
         );
       },
       child: Stack(
@@ -48,7 +48,7 @@ class ArtDetailLayer extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.network(detail.thumbnailUrl, fit: BoxFit.cover),
+              child: Image.network(art.files['main_image']['image_url'], fit: BoxFit.cover),
             ),
           ),
           Positioned(
@@ -88,7 +88,7 @@ class ArtDetailLayer extends StatelessWidget {
 }
 
 /// 아트 상세보기 바텀시트 호출 함수
-void showArtDetailLayer(BuildContext context, ArtDetailModel detailModel) {
+void showArtDetailLayer(BuildContext context, Art art) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -96,7 +96,7 @@ void showArtDetailLayer(BuildContext context, ArtDetailModel detailModel) {
       borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
     ),
     builder: (builder) {
-      return ArtDetailLayer(detail: detailModel);
+      return ArtDetailLayer(art: art);
     },
   );
 }

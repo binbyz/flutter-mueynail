@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mueynail/app/components/common_app_bar.dart';
 import 'package:mueynail/app/entities/art/art_detail_model.dart';
 import 'package:mueynail/app/enum/art_status.dart';
-import 'package:mueynail/screens/home/components/art_detail_layer.dart';
 
 final List<ArtDetailModel> artList = [
   const ArtDetailModel(
@@ -73,9 +72,9 @@ class ArtCollectionScreen extends StatelessWidget {
         itemCount: artList.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {
-              showArtDetailLayer(context, artList[index]);
-            },
+            // onTap: () {
+            //   showArtDetailLayer(context, artList[index]);
+            // },
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(

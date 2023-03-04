@@ -3,7 +3,6 @@ import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:mueynail/app/entities/art/art_detail_model.dart';
 import 'package:mueynail/app/enum/art_status.dart';
 import 'package:mueynail/screens/home/art_collection_screen.dart';
-import 'package:mueynail/screens/home/components/art_detail_layer.dart';
 
 final List<ArtDetailModel> artList = [
   const ArtDetailModel(
@@ -90,9 +89,9 @@ class ArtCollection extends StatelessWidget {
 
   Widget makeCarouselItem({required BuildContext context, required ArtDetailModel detailModel}) {
     return GestureDetector(
-      onTap: () {
-        showArtDetailLayer(context, detailModel);
-      },
+      // onTap: () {
+      //   showArtDetailLayer(context, detailModel);
+      // },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Stack(

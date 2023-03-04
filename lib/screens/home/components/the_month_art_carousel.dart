@@ -4,6 +4,7 @@ import 'package:mueynail/app/entities/art/art_detail_model.dart';
 import 'package:mueynail/app/enum/art_status.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/screens/home/components/art_detail_layer.dart';
+import 'package:mueynail/services/api.dart';
 
 final List<ArtDetailModel> artList = [
   const ArtDetailModel(
@@ -63,13 +64,17 @@ class TheMonthArtCarousel extends StatefulWidget {
 class _TheMonthArtCarouselState extends State<TheMonthArtCarousel> {
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      for (var imageUrl in artList) {
-        precacheImage(NetworkImage(imageUrl.thumbnailUrl), context);
-      }
-    });
-
     super.initState();
+
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   for (var imageUrl in artList) {
+    //     precacheImage(NetworkImage(imageUrl.thumbnailUrl), context);
+    //   }
+    // });
+
+    fetchArtMonthPick().then((picks) {
+      print(picks);
+    });
   }
 
   @override

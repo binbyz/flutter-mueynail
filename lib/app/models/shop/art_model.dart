@@ -1,6 +1,6 @@
 import 'package:mueynail/app/models/enums/shop/art_state.dart';
 
-class Art {
+class ArtModel {
   final int id;
   final int shopId;
   final ArtState state;
@@ -15,7 +15,7 @@ class Art {
   final String updatedAt;
   final List<CategoryLabel> categoriesLabel;
 
-  Art({
+  ArtModel({
     required this.id,
     required this.shopId,
     required this.state,
@@ -31,8 +31,8 @@ class Art {
     required this.categoriesLabel,
   });
 
-  factory Art.fromJson(Map<String, dynamic> json) {
-    return Art(
+  factory ArtModel.fromJson(Map<String, dynamic> json) {
+    return ArtModel(
       id: json['id'],
       shopId: json['shop_id'],
       state: ArtStateExtension.fromValue(json['state']),

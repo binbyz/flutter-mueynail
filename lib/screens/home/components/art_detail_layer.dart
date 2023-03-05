@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/models/shop/art.dart';
+import 'package:mueynail/app/models/shop/art_model.dart';
 import 'package:mueynail/constants/style.dart';
+import 'package:mueynail/constants/value.dart';
 import 'package:mueynail/screens/image_viewer.dart';
 
 class ArtDetailLayer extends StatelessWidget {
-  final Art art;
+  final ArtModel art;
 
   const ArtDetailLayer({Key? key, required this.art}) : super(key: key);
 
@@ -23,23 +24,27 @@ class ArtDetailLayer extends StatelessWidget {
                   const SizedBox(height: 20),
                   Text(art.name, style: titleTextStyle),
                   const SizedBox(height: 20),
-                  Text(art.description, style: summaryTextStyle, textAlign: TextAlign.center),
+                  Text(art.description,
+                      style: summaryTextStyle, textAlign: TextAlign.center),
                 ],
               ),
             ),
           ),
-          Positioned(left: 0, bottom: 30, child: bottomReservationOrLike(context)),
+          Positioned(
+              left: 0, bottom: 30, child: bottomReservationOrLike(context)),
         ],
       ),
     );
   }
 
   /// 이미지 미리보기 및 클릭시 확대
-  GestureDetector imageEnlargePreview(BuildContext context) {
+  Widget imageEnlargePreview(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => ImageViewer(imageUrl: art.files['main_image']['image_url'])),
+          MaterialPageRoute(
+              builder: (_) =>
+                  ImageViewer(imageUrl: art.files['main_image']['full_url'])),
         );
       },
       child: Stack(
@@ -48,7 +53,11 @@ class ArtDetailLayer extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.network(art.files['main_image']['image_url'], fit: BoxFit.cover),
+              child: Image.network(
+                art.files['main_image']['full_url'],
+                fit: BoxFit.cover,
+                height: imageHeight + 30,
+              ),
             ),
           ),
           Positioned(
@@ -58,7 +67,8 @@ class ArtDetailLayer extends StatelessWidget {
               color: Colors.black.withOpacity(0.6),
               width: 25,
               height: 25,
-              child: const Icon(Icons.fitness_center_rounded, color: Colors.white, size: 14),
+              child: const Icon(Icons.fitness_center_rounded,
+                  color: Colors.white, size: 14),
             ),
           ),
         ],
@@ -74,7 +84,9 @@ class ArtDetailLayer extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(child: ElevatedButton(onPressed: () {}, child: const Text('예약하기'))),
+          Expanded(
+              child:
+                  ElevatedButton(onPressed: () {}, child: const Text('예약하기'))),
           const SizedBox(width: 5),
           ElevatedButton(
             onPressed: () {},
@@ -88,7 +100,7 @@ class ArtDetailLayer extends StatelessWidget {
 }
 
 /// 아트 상세보기 바텀시트 호출 함수
-void showArtDetailLayer(BuildContext context, Art art) {
+void showArtDetailLayer(BuildContext context, ArtModel art) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,

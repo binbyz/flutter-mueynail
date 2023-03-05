@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:logger/logger.dart';
-import 'package:mueynail/app/models/shop/art.dart';
+import 'package:mueynail/app/models/shop/art_model.dart';
 
 final logger = Logger();
 
@@ -24,7 +24,7 @@ Future<List<dynamic>> _fetchArtMonthPick() async {
   }
 }
 
-Future<List<Art>> fetchArtMonthPick() async {
+Future<List<ArtModel>> fetchArtMonthPick() async {
   final json = await _fetchArtMonthPick();
-  return json.map((item) => Art.fromJson(item)).toList();
+  return json.map((item) => ArtModel.fromJson(item)).toList();
 }

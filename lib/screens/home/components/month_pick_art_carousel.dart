@@ -1,57 +1,55 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/http/api.dart';
-import 'package:mueynail/app/models/shop/art.dart';
+import 'package:mueynail/app/models/shop/art_model.dart';
 import 'package:mueynail/constants/style.dart';
+import 'package:mueynail/constants/value.dart';
 import 'package:mueynail/screens/home/components/art_detail_layer.dart';
 
-class TheMonthArtCarousel extends StatefulWidget {
-  const TheMonthArtCarousel({Key? key}) : super(key: key);
+class MonthPickArtCarousel extends StatefulWidget {
+  const MonthPickArtCarousel({Key? key}) : super(key: key);
 
   @override
-  State<TheMonthArtCarousel> createState() => _TheMonthArtCarouselState();
+  State<MonthPickArtCarousel> createState() => _MonthPickArtCarouselState();
 }
 
-class _TheMonthArtCarouselState extends State<TheMonthArtCarousel> {
-  List<Art> artList = [];
+class _MonthPickArtCarouselState extends State<MonthPickArtCarousel> {
+  late Future<List<ArtModel>> _artList;
 
   @override
   void initState() {
     super.initState();
-
-    fetchArtMonthPick().then((picks) {
-      for (var art in picks) {
-        precacheImage(
-            NetworkImage(art.files['main_image']['full_url']), context);
-      }
-
-      // 이달의 아트 가져오기
-      setState(() {
-        artList = picks;
-      });
-    });
+    _artList = fetchArtMonthPick();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: CarouselSlider.builder(
-        itemCount: artList.length,
-        options: CarouselOptions(
-          height: 340,
-          autoPlay: true,
-          autoPlayInterval: const Duration(seconds: 15),
-          aspectRatio: 5.0,
-          enlargeCenterPage: false,
-        ),
-        itemBuilder: (context, index, realIdx) {
-          return makeCarouselItem(context, artList[index]);
-        },
-      ),
-    );
+    return FutureBuilder<List<ArtModel>>(
+        future: _artList,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else {
+            return SizedBox(
+              child: CarouselSlider.builder(
+                itemCount: snapshot.data?.length,
+                options: CarouselOptions(
+                  height: 340,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 15),
+                  aspectRatio: 5.0,
+                  enlargeCenterPage: false,
+                ),
+                itemBuilder: (context, index, realIdx) {
+                  return makeCarouselItem(context, snapshot.data![index]);
+                },
+              ),
+            );
+          }
+        });
   }
 
-  Widget makeCarouselItem(BuildContext context, Art art) {
+  Widget makeCarouselItem(BuildContext context, ArtModel art) {
     return Container(
       width: 340,
       margin: const EdgeInsets.symmetric(horizontal: 5),
@@ -66,19 +64,16 @@ class _TheMonthArtCarouselState extends State<TheMonthArtCarousel> {
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
                   art.files['main_image']['full_url'],
-                  fit: BoxFit.fitWidth,
-                  width: 340,
-                  height: 240,
+                  fit: BoxFit.cover,
+                  width: imageWidth,
+                  height: imageHeight,
                 ),
               ),
             ),
           ),
           SizedBox(
             height: 100,
-            width: MediaQuery
-                .of(context)
-                .size
-                .width / 2,
+            width: MediaQuery.of(context).size.width / 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

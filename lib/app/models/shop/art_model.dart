@@ -10,7 +10,7 @@ class ArtModel {
   final String summary;
   final String description;
   final int price;
-  final Map<String, dynamic> files;
+  final Files files;
   final String createdAt;
   final String updatedAt;
   final List<CategoryLabel> categoriesLabel;
@@ -42,7 +42,7 @@ class ArtModel {
       summary: json['summary'],
       description: json['description'],
       price: json['price'],
-      files: json['files'],
+      files: Files.fromJson(json['files']),
       createdAt: json['created_at'],
       updatedAt: json['updated_at'],
       categoriesLabel: List<CategoryLabel>.from(json['categories_label']
@@ -60,4 +60,32 @@ class CategoryLabel {
   factory CategoryLabel.fromJson(Map<String, dynamic> json) {
     return CategoryLabel(id: json['id'], label: json['label']);
   }
+}
+
+class Files {
+  List<Images> images;
+  MainImage mainImage;
+
+  Files.fromJson(Map<String, dynamic> json)
+      : images =
+            (json['images'] as List).map((i) => Images.fromJson(i)).toList(),
+        mainImage = MainImage.fromJson(json['main_image']);
+}
+
+class Images {
+  int id;
+  String fullUrl;
+
+  Images.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        fullUrl = json['full_url'];
+}
+
+class MainImage {
+  int? id;
+  String? fullUrl;
+
+  MainImage.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        fullUrl = json['full_url'];
 }

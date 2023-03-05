@@ -63,7 +63,7 @@ class _MonthPickArtCarouselState extends State<MonthPickArtCarousel> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
-                  art.files['main_image']['full_url'],
+                  art.files.mainImage.fullUrl!,
                   fit: BoxFit.cover,
                   width: imageWidth,
                   height: imageHeight,

@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/models/shop/art_model.dart';
 import 'package:mueynail/constants/style.dart';
@@ -20,7 +21,22 @@ class ArtDetailLayer extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  imageEnlargePreview(context),
+                  SizedBox(
+                    child: CarouselSlider.builder(
+                      itemCount: art.files.images.length,
+                      options: CarouselOptions(
+                        height: imageHeight + 30,
+                        viewportFraction: 1.0,
+                        enlargeCenterPage: false,
+                        enableInfiniteScroll: false,
+                        autoPlay: false,
+                      ),
+                      itemBuilder: (context, index, realIdx) {
+                        return enlargeSingleImage(context, art.files.images[index].fullUrl);
+                      },
+                    ),
+                  ),
+
                   const SizedBox(height: 20),
                   Text(art.name, style: titleTextStyle),
                   const SizedBox(height: 20),
@@ -38,13 +54,13 @@ class ArtDetailLayer extends StatelessWidget {
   }
 
   /// 이미지 미리보기 및 클릭시 확대
-  Widget imageEnlargePreview(BuildContext context) {
+  Widget enlargeSingleImage(BuildContext context, String imageUrl) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
               builder: (_) =>
-                  ImageViewer(imageUrl: art.files['main_image']['full_url'])),
+                  ImageViewer(imageUrl: imageUrl)),
         );
       },
       child: Stack(
@@ -54,7 +70,7 @@ class ArtDetailLayer extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.network(
-                art.files['main_image']['full_url'],
+                imageUrl,
                 fit: BoxFit.cover,
                 height: imageHeight + 30,
               ),
@@ -73,6 +89,13 @@ class ArtDetailLayer extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  /// 이미지 Indicator
+  Widget imageIndicator() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
     );
   }
 

@@ -1,17 +1,26 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:mueynail/app/models/shop/art_model.dart';
+import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
 import 'package:mueynail/screens/image_viewer.dart';
 
-class ArtDetailLayer extends StatelessWidget {
+class ArtDetailLayer extends StatefulWidget {
   final ArtModel art;
 
   const ArtDetailLayer({Key? key, required this.art}) : super(key: key);
 
   @override
+  State<ArtDetailLayer> createState() => _ArtDetailLayerState();
+}
+
+class _ArtDetailLayerState extends State<ArtDetailLayer> {
+  int _current = 0;
+
+  @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
       child: Stack(
@@ -23,24 +32,29 @@ class ArtDetailLayer extends StatelessWidget {
                 children: [
                   SizedBox(
                     child: CarouselSlider.builder(
-                      itemCount: art.files.images.length,
+                      itemCount: widget.art.files.images.length,
                       options: CarouselOptions(
                         height: imageHeight + 30,
                         viewportFraction: 1.0,
                         enlargeCenterPage: false,
                         enableInfiniteScroll: false,
                         autoPlay: false,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _current = index;
+                          });
+                        },
                       ),
                       itemBuilder: (context, index, realIdx) {
-                        return enlargeSingleImage(context, art.files.images[index].fullUrl);
+                        return enlargeSingleImage(context, widget.art.files.images[index].fullUrl);
                       },
                     ),
                   ),
-
+                  carouselIndicator(),
                   const SizedBox(height: 20),
-                  Text(art.name, style: titleTextStyle),
+                  Text(widget.art.name, style: titleTextStyle),
                   const SizedBox(height: 20),
-                  Text(art.description,
+                  Text(widget.art.description,
                       style: summaryTextStyle, textAlign: TextAlign.center),
                 ],
               ),
@@ -93,9 +107,24 @@ class ArtDetailLayer extends StatelessWidget {
   }
 
   /// 이미지 Indicator
-  Widget imageIndicator() {
+  Widget carouselIndicator() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ...widget.art.files.images.asMap().entries.map((e) {
+          return Container(
+            width: 6.0,
+            height: 6.0,
+            margin: const EdgeInsets.fromLTRB(2, 15, 2, 0),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: primaryColor.withOpacity(
+                  (_current == e.key) ? 0.9 : 0.4,
+              ),
+            ),
+          );
+        }).toList(),
+      ],
     );
   }
 

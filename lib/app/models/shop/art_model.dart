@@ -82,8 +82,8 @@ class Images {
 }
 
 class MainImage {
-  int? id;
-  String? fullUrl;
+  int id;
+  String fullUrl;
 
   MainImage.fromJson(Map<String, dynamic> json)
       : id = json['id'],

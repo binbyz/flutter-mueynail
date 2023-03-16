@@ -1,4 +1,5 @@
 import 'package:mueynail/app/models/enums/shop/art_state.dart';
+import 'package:mueynail/app/models/shop/files_model.dart';
 
 class ArtModel {
   final int id;
@@ -60,32 +61,4 @@ class CategoryLabel {
   factory CategoryLabel.fromJson(Map<String, dynamic> json) {
     return CategoryLabel(id: json['id'], label: json['label']);
   }
-}
-
-class Files {
-  List<Images> images;
-  MainImage mainImage;
-
-  Files.fromJson(Map<String, dynamic> json)
-      : images =
-            (json['images'] as List).map((i) => Images.fromJson(i)).toList(),
-        mainImage = MainImage.fromJson(json['main_image']);
-}
-
-class Images {
-  int id;
-  String fullUrl;
-
-  Images.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        fullUrl = json['full_url'];
-}
-
-class MainImage {
-  int id;
-  String fullUrl;
-
-  MainImage.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        fullUrl = json['full_url'];
 }

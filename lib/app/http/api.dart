@@ -82,5 +82,6 @@ Future<List<dynamic>> _fetchEventList() async {
 
 Future<List<EventModel>> fetchEventList() async {
   final json = await _fetchEventList();
+  print(EventModel.fromJson(json[0]));
   return json.map((item) => EventModel.fromJson(item)).toList();
 }

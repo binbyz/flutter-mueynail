@@ -8,7 +8,7 @@ class EventModel {
   final String title;
   final String summary;
   final String description;
-  final Files files;
+  final Files? files;
   final String endedAt;
   final String createdAt;
   final String updatedAt;
@@ -34,7 +34,7 @@ class EventModel {
       title: json['title'],
       summary: json['summary'],
       description: json['description'],
-      files: Files.fromJson(json['files']),
+      files: json['files']['images'] ? Files.fromJson(json['files']) : null,
       endedAt: json['ended_at'],
       createdAt: json['created_at'],
       updatedAt: json['updated_at'],

@@ -1,5 +1,4 @@
 import 'package:mueynail/app/models/enums/shop/event_state.dart';
-import 'package:mueynail/app/models/shop/files_model.dart';
 
 class EventModel {
   final int id;
@@ -8,7 +7,6 @@ class EventModel {
   final String title;
   final String summary;
   final String description;
-  final Files? files;
   final String endedAt;
   final String createdAt;
   final String updatedAt;
@@ -20,7 +18,6 @@ class EventModel {
     required this.title,
     required this.summary,
     required this.description,
-    required this.files,
     required this.endedAt,
     required this.createdAt,
     required this.updatedAt,
@@ -34,7 +31,6 @@ class EventModel {
       title: json['title'],
       summary: json['summary'],
       description: json['description'],
-      files: json['files']['images'] ? Files.fromJson(json['files']) : null,
       endedAt: json['ended_at'],
       createdAt: json['created_at'],
       updatedAt: json['updated_at'],

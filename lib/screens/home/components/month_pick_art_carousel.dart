@@ -4,7 +4,7 @@ import 'package:mueynail/app/http/api.dart';
 import 'package:mueynail/app/models/shop/art_model.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
-import 'package:mueynail/screens/home/components/art_detail_layer.dart';
+import 'package:mueynail/screens/home/components/art_detail_modal.dart';
 
 class MonthPickArtCarousel extends StatefulWidget {
   const MonthPickArtCarousel({Key? key}) : super(key: key);
@@ -57,13 +57,13 @@ class _MonthPickArtCarouselState extends State<MonthPickArtCarousel> {
         children: [
           GestureDetector(
             onTap: () {
-              showArtDetailLayer(context, art);
+              showArtDetailModal(context, art);
             },
             child: Center(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
-                  art.files.mainImage.fullUrl!,
+                  art.files.mainImage.fullUrl,
                   fit: BoxFit.cover,
                   width: imageWidth,
                   height: imageHeight,

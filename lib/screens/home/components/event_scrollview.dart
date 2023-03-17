@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/components/ink_well_card.dart';
 import 'package:mueynail/app/http/api.dart';
 import 'package:mueynail/app/models/shop/event_model.dart';
 import 'package:mueynail/constants/style.dart';
+import 'package:mueynail/screens/components/ink_well_card.dart';
+import 'package:mueynail/screens/home/components/event_detail_modal.dart';
 
 class EventScrollview extends StatefulWidget {
   const EventScrollview({Key? key}) : super(key: key);
@@ -29,7 +30,6 @@ class _EventScrollviewState extends State<EventScrollview> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         } else {
-          print(snapshot.connectionState);
           return _buildEventList(snapshot.data!);
         }
       },
@@ -38,22 +38,24 @@ class _EventScrollviewState extends State<EventScrollview> {
 
   Widget _buildEventList(List<EventModel> events) {
     return SizedBox(
-      height: 160,
+      height: 180,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: events.length,
         itemBuilder: (BuildContext context, int i) {
           final event = events[i];
 
-          DateTime endAt = DateTime.parse(event.endedAt);
-          int remainDays = endAt.difference(now).inDays;
+          int remainDays = event.endedAt.difference(now).inDays;
           String remainText = (remainDays > 0) ? '$remainDays일 남음' : '마감';
 
           return InkWellCard(
+            callback: () {
+              showEventDetailModal(context, event);
+            },
             child: Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Flexible(
                     child: Text(
@@ -64,16 +66,31 @@ class _EventScrollviewState extends State<EventScrollview> {
                       maxLines: 1,
                     ),
                   ),
-                  Flexible(
-                    child: Text(
-                      event.summary,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      maxLines: 3,
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.calendar_month, color: Colors.grey, size: 16),
+                      const SizedBox(width: 2),
+                      Text(
+                        remainText,
+                        style: summaryTextStyle,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    height: 80,
+                    child: Flexible(
+                      child: Text(
+                        event.summary,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        maxLines: 3,
+                      ),
                     ),
                   ),
-                  Text(remainText,
-                      style: summaryTextStyle, textAlign: TextAlign.center),
                 ],
               ),
             ),

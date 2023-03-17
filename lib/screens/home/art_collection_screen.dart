@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/components/common_app_bar.dart';
 import 'package:mueynail/app/http/api.dart';
 import 'package:mueynail/app/models/shop/art_model.dart';
-import 'package:mueynail/screens/home/components/art_detail_layer.dart';
+import 'package:mueynail/screens/components/common_app_bar.dart';
+import 'package:mueynail/screens/home/components/art_detail_modal.dart';
 
 class ArtCollectionScreen extends StatefulWidget {
   const ArtCollectionScreen({Key? key}) : super(key: key);
@@ -40,7 +40,7 @@ class _ArtCollectionScreenState extends State<ArtCollectionScreen> {
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
-                    showArtDetailLayer(context, snapshot.data![index]);
+                    showArtDetailModal(context, snapshot.data![index]);
                   },
                   child: Container(
                     decoration: BoxDecoration(

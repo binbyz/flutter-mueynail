@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:mueynail/app/components/app_navigation.dart';
 import 'package:mueynail/constants/color.dart';
+import 'package:mueynail/screens/components/app_navigation.dart';
 import 'package:mueynail/screens/member/member_screen.dart';
 
 import 'screens/chat/chat_screen.dart';

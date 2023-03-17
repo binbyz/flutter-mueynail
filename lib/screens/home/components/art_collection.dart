@@ -3,7 +3,7 @@ import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:mueynail/app/http/api.dart';
 import 'package:mueynail/app/models/shop/art_model.dart';
 import 'package:mueynail/screens/home/art_collection_screen.dart';
-import 'package:mueynail/screens/home/components/art_detail_layer.dart';
+import 'package:mueynail/screens/home/components/art_detail_modal.dart';
 
 class ArtCollection extends StatefulWidget {
   const ArtCollection({Key? key}) : super(key: key);
@@ -67,7 +67,7 @@ class _ArtCollectionState extends State<ArtCollection> {
       {required BuildContext context, required ArtModel art}) {
     return GestureDetector(
       onTap: () {
-        showArtDetailLayer(context, art);
+        showArtDetailModal(context, art);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5),

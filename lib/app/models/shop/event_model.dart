@@ -7,9 +7,9 @@ class EventModel {
   final String title;
   final String summary;
   final String description;
-  final String endedAt;
-  final String createdAt;
-  final String updatedAt;
+  final DateTime endedAt;
+  final DateTime createdAt;
+  final DateTime updatedAt;
 
   EventModel({
     required this.id,
@@ -31,9 +31,9 @@ class EventModel {
       title: json['title'],
       summary: json['summary'],
       description: json['description'],
-      endedAt: json['ended_at'],
-      createdAt: json['created_at'],
-      updatedAt: json['updated_at'],
+      endedAt: DateTime.parse(json['ended_at']),
+      createdAt: DateTime.parse(json['created_at']),
+      updatedAt: DateTime.parse(json['updated_at']),
     );
   }
 }

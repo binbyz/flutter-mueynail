@@ -1,13 +1,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/components/common_app_bar.dart';
 import 'package:mueynail/app/entities/art/art_detail_model.dart';
 import 'package:mueynail/app/entities/review/review_model.dart';
 import 'package:mueynail/app/enum/art_status.dart';
 import 'package:mueynail/app/enum/review_status.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
+import 'package:mueynail/screens/components/common_app_bar.dart';
 import 'package:mueynail/screens/member/components/review_layer.dart';
 
 final List<ArtDetailModel> artList = [

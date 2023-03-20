@@ -82,13 +82,11 @@ class _EventScrollviewState extends State<EventScrollview> {
                   const SizedBox(height: 10),
                   SizedBox(
                     height: 80,
-                    child: Flexible(
-                      child: Text(
-                        event.summary,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                        maxLines: 3,
-                      ),
+                    child: Text(
+                      event.summary,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
+                      maxLines: 3,
                     ),
                   ),
                 ],

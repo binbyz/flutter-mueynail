@@ -46,6 +46,7 @@ dependencies:
   flutter_dotenv: ^5.0.2
   logger: ^1.2.2
   cached_network_image: ^3.2.3
+  flutter_secure_storage: ^8.0.0
 
 dev_dependencies:
   flutter_test:
@@ -59,7 +60,6 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   hive_generator: ^2.0.0
   build_runner: ^2.3.3
-  flutter_secure_storage: ^8.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -119,4 +119,18 @@ flutter:
         - asset: asset/font/NotoSansKR-Light.otf
           weight: 200
         - asset: asset/font/NotoSansKR-Thin.otf
+          weight: 100
+    - family: SpoqaHanSansNeo
+      fonts:
+        - asset: asset/font/SpoqaHanSansNeo-Black.otf
+          weight: 900
+        - asset: asset/font/SpoqaHanSansNeo-Bold.otf
+          weight: 700
+        - asset: asset/font/SpoqaHanSansNeo-Medium.otf
+          weight: 500
+        - asset: asset/font/SpoqaHanSansNeo-Regular.otf
+          weight: 300
+        - asset: asset/font/SpoqaHanSansNeo-Light.otf
+          weight: 200
+        - asset: asset/font/SpoqaHanSansNeo-Thin.otf
           weight: 100

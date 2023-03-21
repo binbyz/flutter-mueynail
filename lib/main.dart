@@ -1,21 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:mueynail/app/storage/storage.dart';
 import 'package:mueynail/constants/color.dart';
+import 'package:mueynail/screens/chat/chat_screen.dart';
 import 'package:mueynail/screens/components/app_navigation.dart';
+import 'package:mueynail/screens/home/home_screen.dart';
+import 'package:mueynail/screens/login/login_screen.dart';
 import 'package:mueynail/screens/member/member_screen.dart';
-
-import 'screens/chat/chat_screen.dart';
-import 'screens/home/home_screen.dart';
-import 'screens/reservation/reservation_screen.dart';
+import 'package:mueynail/screens/reservation/reservation_screen.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: '.env');
+
+  final storage = Storage();
+
+  Widget startHome = await storage.hasValidToken()
+      ? const AppScaffold()
+      : const LoginScreen();
 
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'notosans',
+        fontFamily: 'SpoqaHanSansNeo',
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(
+            letterSpacing: -0.5,
+          ),
+        ),
         primaryColor: primaryColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -36,7 +48,7 @@ Future<void> main() async {
           focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: primaryColor)),
         ),
       ),
-      home: const AppScaffold(),
+      home: startHome,
     ),
   );
 }

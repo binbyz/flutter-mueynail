@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mueynail/app/http/api.dart';
-import 'package:mueynail/app/models/shop/shop_model.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,20 +10,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  List<ShopModel> _shops = [];
-  int? _selectedShopId = null;
-
-  @override
-  void initState() {
-    super.initState();
-
-    fetchShop().then(
-      (value) => setState(() {
-        print(value);
-        _shops = value;
-      }),
-    );
-  }
+  String? _email;
+  String? _password;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      '매장',
+                      '이메일',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -74,41 +62,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(height: 5),
-                    DropdownButton(
-                      isExpanded: true,
-                      value: _selectedShopId,
-                      items: _shops.map((shop) {
-                        return DropdownMenuItem(
-                          value: shop.id,
-                          child: Row(
-                            children: [
-                              Text(shop.name, style: const TextStyle(color: Colors.black, fontSize: 14)),
-                              Text(' (${shop.address})', style: const TextStyle(color: Colors.grey, fontSize: 12)),
-                            ],
-                          ),
-                        );
-                      }).toList(),
+                    TextField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: '이메일을 입력해주세요',
+                      ),
                       onChanged: (value) {
                         setState(() {
-                          _selectedShopId = value as int;
+                          _email = value;
                         });
                       },
-                    ),
-                    const SizedBox(height: 15),
-                    const Text(
-                      '아이디',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF424242),
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    const TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: '아이디를 입력해주세요',
-                      ),
                     ),
                     // TextField password
                     const SizedBox(height: 20),
@@ -121,26 +84,32 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(height: 5),
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: '비밀번호를 입력해주세요',
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          _password = value;
+                        });
+                      },
                     ),
                     // login button
                     const SizedBox(height: 20),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _login();
+                        },
                         child: const Text('로그인'),
                       ),
                     ),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {
-                        },
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           foregroundColor: Colors.black,
@@ -156,5 +125,31 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  _login() async {
+    if (_email == null || _email!.isEmpty) {
+      Fluttertoast.showToast(msg: '이메일을 입력해주세요.', backgroundColor: Colors.red);
+      return;
+    }
+
+    if (_password == null || _password!.isEmpty) {
+      Fluttertoast.showToast(msg: '비밀번호를 입력해주세요.', backgroundColor: Colors.red);
+      return;
+    }
+
+    fetchLogin(_email!, _password!).then((value) {
+      if (value.token.isNotEmpty && value.user.email == _email) {
+        Fluttertoast.showToast(msg: '로그인 성공');
+      } else {
+        Fluttertoast.showToast(msg: '로그인 실패');
+      }
+    }).catchError((error) {
+      Fluttertoast.showToast(
+        msg: '아이디와 비밀번호를 확인해주세요.',
+        toastLength: Toast.LENGTH_LONG,
+        backgroundColor: Colors.red,
+      );
+    });
   }
 }

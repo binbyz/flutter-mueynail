@@ -38,7 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  dio: ^4.0.6
+  dio: ^5.0.3
   carousel_slider: ^4.2.1
   image_picker: ^0.8.6+1
   infinite_carousel: ^1.0.2
@@ -47,6 +47,7 @@ dependencies:
   logger: ^1.2.2
   cached_network_image: ^3.2.3
   flutter_secure_storage: ^8.0.0
+  fluttertoast: ^8.2.1
 
 dev_dependencies:
   flutter_test:
@@ -122,8 +123,6 @@ flutter:
           weight: 100
     - family: SpoqaHanSansNeo
       fonts:
-        - asset: asset/font/SpoqaHanSansNeo-Black.otf
-          weight: 900
         - asset: asset/font/SpoqaHanSansNeo-Bold.otf
           weight: 700
         - asset: asset/font/SpoqaHanSansNeo-Medium.otf

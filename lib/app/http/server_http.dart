@@ -30,7 +30,7 @@ class ServerHttp {
     return UserTokenModel.fromJson(response.data);
   }
 
-  Future<List<ShopModel>> fetchShop() async {
+  Future<List<ShopModel>> fetchShopList() async {
     final response = await _commonHttp.get('/shop/v1/shop');
     final List<dynamic> json = response.data['data'];
 

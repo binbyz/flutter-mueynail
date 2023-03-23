@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
-import 'package:mueynail/constants/value.dart';
 
 class AppNavigation extends StatelessWidget {
   final ValueChanged<int> onItemTapped;
@@ -26,7 +25,7 @@ class AppNavigation extends StatelessWidget {
         selectedItemColor: primaryColor,
         selectedLabelStyle: navigationTextStyle,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.face_3_outlined), label: valueBrand),
+          BottomNavigationBarItem(icon: Icon(Icons.face_3_outlined), label: '홈 화면'),
           BottomNavigationBarItem(icon: Icon(Icons.sms_outlined), label: '문의하기'),
           BottomNavigationBarItem(icon: Icon(Icons.calendar_today_outlined), label: '예약하기'),
           BottomNavigationBarItem(icon: Icon(Icons.fingerprint_outlined), label: '내 정보'),

@@ -12,11 +12,9 @@ import 'package:mueynail/screens/reservation/reservation_screen.dart';
 Future<void> main() async {
   await dotenv.load(fileName: '.env');
 
-  final storage = Storage();
-
-  Widget startHome = await storage.hasValidToken()
-      ? const AppScaffold()
-      : const LoginScreen();
+  String initialRoute = await Storage().hasValidToken()
+      ? '/'
+      : '/login';
 
   runApp(
     MaterialApp(
@@ -48,7 +46,11 @@ Future<void> main() async {
           focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: primaryColor)),
         ),
       ),
-      home: startHome,
+      routes: {
+        '/': (context) => const AppScaffold(),
+        '/login': (context) => const LoginScreen(),
+      },
+      initialRoute: initialRoute,
     ),
   );
 }

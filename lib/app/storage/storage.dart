@@ -35,6 +35,12 @@ class Storage {
     return true;
   }
 
+  Future<bool> removeToken() async {
+    await delete(Storage.tokenKey);
+
+    return true;
+  }
+
   Future<void> write(String key, String value) async {
     await _storage.write(key: key, value: value);
   }

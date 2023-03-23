@@ -45,6 +45,13 @@ Future<void> main() async {
           enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: primaryColorOpacity)),
           focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: primaryColor)),
         ),
+        checkboxTheme: CheckboxThemeData(
+          fillColor: MaterialStateColor.resolveWith(
+                  (states) => states.contains(MaterialState.selected)
+                      ? primaryColor
+                      : Colors.grey
+            ),
+          ),
       ),
       routes: {
         '/': (context) => const AppScaffold(),

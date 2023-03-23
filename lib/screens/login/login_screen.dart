@@ -141,16 +141,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
     ServerHttp().fetchLogin(_email!, _password!).then((value) async {
       if (value.token.isNotEmpty && value.user.email == _email) {
-        Fluttertoast.showToast(msg: '로그인 성공');
-
         await Storage().setToken(value).then((value) {
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.of(context).pushReplacementNamed('/');
         });
       } else {
-        Fluttertoast.showToast(msg: '로그인 실패');
+        Fluttertoast.showToast(msg: '잠시 후 다시 시도해주세요.');
       }
     }).onError((error, stackTrace) {
-      Fluttertoast.showToast(msg: '로그인 실패', backgroundColor: Colors.red);
+      Fluttertoast.showToast(msg: '아이디와 비밀번호를 확인해주세요.');
     });
   }
 }

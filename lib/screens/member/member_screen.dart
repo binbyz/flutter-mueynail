@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mueynail/app/storage/storage.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
@@ -38,14 +39,16 @@ class MemberScreen extends StatelessWidget {
             const SizedBox(width: 5),
             Text('고객님', style: summaryTextStyle.copyWith(fontSize: 20)),
           ]),
-          Icon(Icons.settings, size: 24, color: Colors.black87.withOpacity(0.5)),
+          Icon(Icons.settings,
+              size: 24, color: Colors.black87.withOpacity(0.5)),
         ],
       ),
     );
   }
 
   Widget pointPart() {
-    final subTitle = summaryTextStyle.copyWith(color: Colors.white.withOpacity(0.6), fontSize: 14);
+    final subTitle = summaryTextStyle.copyWith(
+        color: Colors.white.withOpacity(0.6), fontSize: 14);
     final valueTitle = brandTextStyle.copyWith(color: Colors.white);
 
     return Padding(
@@ -98,7 +101,8 @@ class MemberScreen extends StatelessWidget {
         _menuPartButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReservationHistoryScreen()),
+              MaterialPageRoute(
+                  builder: (_) => const ReservationHistoryScreen()),
             );
           },
           icon: Icons.history,
@@ -128,7 +132,8 @@ class MemberScreen extends StatelessWidget {
         _menuPartButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReservationHistoryScreen()),
+              MaterialPageRoute(
+                  builder: (_) => const ReservationHistoryScreen()),
             );
           },
           icon: Icons.person_search_outlined,
@@ -136,9 +141,19 @@ class MemberScreen extends StatelessWidget {
           description: '3000 포인트 지급',
         ),
         _menuPartButton(
+          onPressed: () async {
+            await Storage().removeToken().then((value) {
+              Navigator.of(context).pushReplacementNamed('/login');
+            });
+          },
+          icon: Icons.logout_outlined,
+          label: '로그아웃',
+        ),
+        _menuPartButton(
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const ReservationHistoryScreen()),
+              MaterialPageRoute(
+                  builder: (_) => const ReservationHistoryScreen()),
             );
           },
           icon: Icons.exit_to_app_outlined,
@@ -150,7 +165,8 @@ class MemberScreen extends StatelessWidget {
   }
 
   Widget _menuPartTitle(String title) {
-    return Text(title, style: normalTextStyle.copyWith(color: Colors.black54, fontSize: 14));
+    return Text(title,
+        style: normalTextStyle.copyWith(color: Colors.black54, fontSize: 14));
   }
 
   Widget _menuPartButton({

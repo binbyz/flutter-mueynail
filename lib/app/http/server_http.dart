@@ -9,7 +9,7 @@ import 'package:mueynail/app/models/user/user_token_model.dart';
 class ServerHttp {
   static final ServerHttp _instance = ServerHttp._internal();
   static final Dio _commonHttp = Dio(BaseOptions(baseUrl: '${dotenv.env['API_HOST']!}/api'));
-  static late final Dio _shopHttp = Dio(BaseOptions(baseUrl: '${dotenv.env['API_HOST']!}/api/shop/${dotenv.env['SHOP_ID']!}'));
+  static final Dio _shopHttp = Dio(BaseOptions(baseUrl: '${dotenv.env['API_HOST']!}/api/shop/${dotenv.env['SHOP_ID']!}'));
 
   ServerHttp._internal();
 

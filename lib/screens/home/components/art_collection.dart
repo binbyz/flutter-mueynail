@@ -50,7 +50,7 @@ class _ArtCollectionState extends State<ArtCollection> {
                 child: TextButton(
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => ArtCollectionScreen()),
+                      MaterialPageRoute(builder: (_) => const ArtCollectionScreen()),
                     );
                   },
                   child: const Icon(Icons.more_horiz_rounded),

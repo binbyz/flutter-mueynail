@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
-import 'package:mueynail/app/http/api.dart';
+import 'package:mueynail/app/http/server_http.dart';
 import 'package:mueynail/app/models/shop/art_model.dart';
 import 'package:mueynail/screens/home/art_collection_screen.dart';
 import 'package:mueynail/screens/home/components/art_detail_modal.dart';
@@ -18,7 +18,7 @@ class _ArtCollectionState extends State<ArtCollection> {
   @override
   void initState() {
     super.initState();
-    _artList = fetchArtCollection();
+    _artList = ServerHttp().fetchArtCollection();
   }
 
   @override

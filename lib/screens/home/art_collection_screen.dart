@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/http/api.dart';
+import 'package:mueynail/app/http/server_http.dart';
 import 'package:mueynail/app/models/shop/art_model.dart';
 import 'package:mueynail/screens/components/common_app_bar.dart';
 import 'package:mueynail/screens/home/components/art_detail_modal.dart';
@@ -17,7 +17,7 @@ class _ArtCollectionScreenState extends State<ArtCollectionScreen> {
   @override
   void initState() {
     super.initState();
-    _artList = fetchArtList();
+    _artList = ServerHttp().fetchArtList();
   }
 
   @override

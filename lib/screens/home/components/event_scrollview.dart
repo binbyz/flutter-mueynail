@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/http/api.dart';
+import 'package:mueynail/app/http/server_http.dart';
 import 'package:mueynail/app/models/shop/event_model.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/screens/components/ink_well_card.dart';
@@ -19,7 +19,7 @@ class _EventScrollviewState extends State<EventScrollview> {
   @override
   void initState() {
     super.initState();
-    _eventList = fetchEventList();
+    _eventList = ServerHttp().fetchEventList();
   }
 
   @override

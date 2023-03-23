@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mueynail/app/http/api.dart';
+import 'package:mueynail/app/http/server_http.dart';
+import 'package:mueynail/app/storage/storage.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -138,18 +139,18 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    fetchLogin(_email!, _password!).then((value) {
+    ServerHttp().fetchLogin(_email!, _password!).then((value) async {
       if (value.token.isNotEmpty && value.user.email == _email) {
         Fluttertoast.showToast(msg: '로그인 성공');
+
+        await Storage().setToken(value).then((value) {
+          Navigator.pushReplacementNamed(context, '/home');
+        });
       } else {
         Fluttertoast.showToast(msg: '로그인 실패');
       }
-    }).catchError((error) {
-      Fluttertoast.showToast(
-        msg: '아이디와 비밀번호를 확인해주세요.',
-        toastLength: Toast.LENGTH_LONG,
-        backgroundColor: Colors.red,
-      );
+    }).onError((error, stackTrace) {
+      Fluttertoast.showToast(msg: '로그인 실패', backgroundColor: Colors.red);
     });
   }
 }

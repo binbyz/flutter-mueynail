@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/http/api.dart';
+import 'package:mueynail/app/http/server_http.dart';
 import 'package:mueynail/app/models/shop/art_model.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
@@ -19,7 +19,7 @@ class _MonthPickArtCarouselState extends State<MonthPickArtCarousel> {
   @override
   void initState() {
     super.initState();
-    _artList = fetchArtMonthPick();
+    _artList = ServerHttp().fetchArtMonthPick();
   }
 
   @override

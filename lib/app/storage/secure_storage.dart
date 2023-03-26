@@ -1,28 +1,30 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:mueynail/app/models/user/user_token_model.dart';
 
-class Storage {
-  static final Storage _instance = Storage._internal();
+class SecureStorage {
+  static final SecureStorage _instance = SecureStorage._internal();
 
   static const String tokenKey = '___token___';
 
-  factory Storage() => _instance;
+  factory SecureStorage() => _instance;
 
-  Storage._internal();
+  SecureStorage._internal();
 
   final _storage = const FlutterSecureStorage();
 
-  Future<void> setToken(UserTokenModel value) async {
-    await write(Storage.tokenKey, value.token);
+  Future<bool> setToken(UserTokenModel value) async {
+    await write(SecureStorage.tokenKey, value.token);
     await write('user.id', value.user.id.toString());
     await write('user.state', value.user.state.toString());
     await write('user.owner_shop_id', value.user.ownerShopId.toString());
     await write('user.name', value.user.name);
     await write('user.email', value.user.email);
+
+    return true;
   }
 
   Future<String?> getToken() async {
-    return await read(Storage.tokenKey);
+    return await read(SecureStorage.tokenKey);
   }
 
   Future<bool> hasValidToken() async {
@@ -36,7 +38,7 @@ class Storage {
   }
 
   Future<bool> removeToken() async {
-    await delete(Storage.tokenKey);
+    await delete(SecureStorage.tokenKey);
 
     return true;
   }

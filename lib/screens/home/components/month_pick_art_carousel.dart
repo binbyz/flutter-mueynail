@@ -14,12 +14,13 @@ class MonthPickArtCarousel extends StatefulWidget {
 }
 
 class _MonthPickArtCarouselState extends State<MonthPickArtCarousel> {
+  final ServerHttp _http = ServerHttp();
   late Future<List<ArtModel>> _artList;
 
   @override
   void initState() {
     super.initState();
-    _artList = ServerHttp().fetchArtMonthPick();
+    _artList = _http.fetchArtMonthPick();
   }
 
   @override

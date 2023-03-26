@@ -1,18 +1,18 @@
 class ShopModel {
   final int id;
   final String name;
-  final String slogan;
+  final String? slogan;
   final String address;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   ShopModel({
     required this.id,
     required this.name,
-    required this.slogan,
+    this.slogan,
     required this.address,
-    required this.createdAt,
-    required this.updatedAt,
+    this.createdAt,
+    this.updatedAt,
   });
 
   factory ShopModel.fromJson(Map<String, dynamic> json) {

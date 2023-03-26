@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:mueynail/app/storage/storage.dart';
+import 'package:mueynail/app/storage/secure_storage.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/screens/chat/chat_screen.dart';
 import 'package:mueynail/screens/components/app_navigation.dart';
@@ -8,12 +8,13 @@ import 'package:mueynail/screens/home/home_screen.dart';
 import 'package:mueynail/screens/login/login_screen.dart';
 import 'package:mueynail/screens/member/member_screen.dart';
 import 'package:mueynail/screens/reservation/reservation_screen.dart';
+import 'package:mueynail/screens/shop_chooser/shop_chooser_screen.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: '.env');
 
-  String initialRoute = await Storage().hasValidToken()
-      ? '/'
+  String initialRoute = await SecureStorage().hasValidToken()
+      ? '/home'
       : '/login';
 
   runApp(
@@ -54,8 +55,9 @@ Future<void> main() async {
           ),
       ),
       routes: {
-        '/': (context) => const AppScaffold(),
+        '/home': (context) => const AppScaffold(),
         '/login': (context) => const LoginScreen(),
+        '/shop/choose': (context) => const ShopChooserScreen(),
       },
       initialRoute: initialRoute,
     ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mueynail/app/storage/storage.dart';
+import 'package:mueynail/app/storage/secure_storage.dart';
 import 'package:mueynail/constants/color.dart';
 import 'package:mueynail/constants/style.dart';
 import 'package:mueynail/constants/value.dart';
@@ -142,7 +142,7 @@ class MemberScreen extends StatelessWidget {
         ),
         _menuPartButton(
           onPressed: () async {
-            await Storage().removeToken().then((value) {
+            await SecureStorage().removeToken().then((value) {
               Navigator.of(context).pushReplacementNamed('/login');
             });
           },
